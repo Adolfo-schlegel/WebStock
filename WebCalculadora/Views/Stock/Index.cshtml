@@ -1,0 +1,92 @@
+﻿@{
+    /*Comentario*/
+}
+@{
+    ViewData["Title"] = "Index";
+}
+@{
+    List<Stock> stock = (List<Stock>)ViewData["Stock"];
+    int indice = stock.Count;    
+}
+@model Stock
+ <head>
+     <style>
+         .contenedor
+         {
+            margin-bottom: 20px;
+            
+         }
+        .Boton
+        {
+            margin-top: 20px;
+        }
+     </style>
+ </head>
+
+<div class="row">
+
+   <div class="col-2">
+       <form asp-action = "setStock" asp-controller="Stock" method="post">
+          <div class="contenedor">    
+
+                  <h7>Nombre</h7>
+                  <input class="form-control" asp-for="Name" type="text" />
+                  <h7>Marca</h7>
+                  <input class="form-control" asp-for="Marca" type="text"/>
+                  <h7>Modelo</h7>
+                  <input class="form-control" asp-for="Modelo" type="text"/>
+                   <h7>Tipo</h7>
+                  <input class="form-control" asp-for="Tipo" type="text"/>
+                  <h7>Area</h7>
+                  <input class="form-control" asp-for="Area" type="text"/>
+                  <h7>Cantidad</h7>
+                  <input class="form-control" asp-for="Cantidad" type="text"/>
+                  <h7>Estado</h7>
+                   <input class="form-control" asp-for= "Estado" type="text"/>
+
+            <div class="Boton">
+                <button type="submit" class="btn btn-primary">Guardar</button>
+            </div>
+         </div>
+       </form>
+   </div>
+
+       <div class="col-10">
+            <table class="table table-striped table-bordered text-secondary bg-info">
+                <header>
+                       <tr>
+                        <th>id</th>
+                        <th>Nombre</th>
+                        <th>Marca</th>
+                        <th>Modelo</th>
+                        <th>Tipo</th>
+                        <th>Area</th>
+                        <th>Cantidad</th>
+                        <th>Estado</th>
+                        </tr>
+                </header>
+                   <tbody>
+                       @for(int i = 0; i<= indice -1; i++)
+                       {
+                           <tr>
+                               <td>@stock[i].Id</td>
+                               <td>@stock[i].Name</td>
+                               <td>@stock[i].Marca</td>
+                               <td>@stock[i].Modelo</td>
+                               <td>@stock[i].Tipo</td>
+                               <td>@stock[i].Area</td>
+                               <td>@stock[i].Cantidad</td>
+                               <td>@stock[i].Estado</td>
+                           </tr>
+                       }
+                   </tbody>
+            </table>
+       </div>
+</div>
+
+   
+
+ 
+
+
+
