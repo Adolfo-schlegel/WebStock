@@ -258,3 +258,7 @@ C:\Users\adolf\source\repos\WebCalculadora\WebCalculadora\bin\Debug\net6.0\runti
 C:\Users\adolf\source\repos\WebCalculadora\WebCalculadora\bin\Debug\net6.0\runtimes\win-x86\native\sni.dll
 C:\Users\adolf\source\repos\WebCalculadora\WebCalculadora\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\adolf\source\repos\WebCalculadora\WebCalculadora\bin\Debug\net6.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\adolf\source\repos\WebCalculadora\WebCalculadora\bin\Debug\net6.0\Microsoft.DotNet.PlatformAbstractions.dll
+C:\Users\adolf\source\repos\WebCalculadora\WebCalculadora\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\adolf\source\repos\WebCalculadora\WebCalculadora\bin\Debug\net6.0\Microsoft.Extensions.PlatformAbstractions.dll
+C:\Users\adolf\source\repos\WebCalculadora\WebCalculadora\bin\Debug\net6.0\Nancy.dll

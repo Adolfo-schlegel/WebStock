@@ -1,44 +1,70 @@
-﻿using MySql.Data.MySqlClient;
+﻿using System.Net;
+using MySql.Data.MySqlClient;
+using Newtonsoft.Json;
+using System.Text.Json;
+using System.Web;
+using Nancy.Json;
 
 namespace WebCalculadora.DataBase
 {
     public class StockBD : Connection
     {
-        List<Models.Stock> vs = new List<Models.Stock>();
-        MySqlConnection Connection;
-        MySqlCommand Command;
-        MySqlDataReader Reader;
+        
 
-        public List<Models.Stock> Read()
+        public async Task<List<Models.Stock>> Read()
         {
-            string sql = "SELECT * FROM deposito_comp";
-            Connection = Conectar();
-            Command = new MySqlCommand(sql,Connection);
-            Reader = Command.ExecuteReader();
+            string url = "http://lanota.3utilities.com/api/values";
+            WebRequest request = WebRequest.Create(url);
+            WebResponse response = await request.GetResponseAsync();
+            StreamReader reader = new StreamReader(response.GetResponseStream());
+
+            string respuesta = await reader.ReadToEndAsync();
+
+            List<Models.Stock> ls = JsonConvert.DeserializeObject<List<Models.Stock>>(respuesta);
+
+            return ls;
+        }
+        public string Set<T>(string url, T objectRequest, string method = "POST")
+        {
+            string result = "";
+
             try
             {
-                while (Reader.Read())
+
+                JavaScriptSerializer js = new JavaScriptSerializer();
+
+                //serializamos el objeto
+                string json = Newtonsoft.Json.JsonConvert.SerializeObject(objectRequest);
+
+                //peticion
+                WebRequest request = WebRequest.Create(url);
+
+                //headers
+                request.Method = method;
+                request.PreAuthenticate = true;
+                request.ContentType = "application/json;charset=utf-8'";
+                request.Timeout = 10000; //tiempo en el que si no se manda nada, te tira un error controlado 
+
+                using (var streamWriter = new StreamWriter(request.GetRequestStream()))
                 {
-                    Models.Stock stock = new Models.Stock();
-
-                    stock.Id = Reader.GetInt16(0);
-                    stock.Name = Reader.GetString(1);
-                    stock.Marca = Reader.GetString(2);
-                    stock.Modelo = Reader.GetString(3);
-                    stock.Tipo = Reader.GetString(4);
-                    stock.Area = Reader.GetString(5);
-                    stock.Cantidad = Reader.GetInt16(6);
-                    stock.Estado = Reader.GetString(7);
-
-                    vs.Add(stock);
+                    streamWriter.Write(json);
+                    streamWriter.Flush();
                 }
-                Connection.Close();
+
+                var httpResponse = (HttpWebResponse)request.GetResponse();
+                using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+                {
+                    result = streamReader.ReadToEnd();
+                }
+
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                Console.WriteLine("Error en la conexion" + ex);
+                result = e.Message;
+
             }
-            return vs;
+
+            return result;
         }
     }
 }

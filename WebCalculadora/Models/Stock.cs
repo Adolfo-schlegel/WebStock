@@ -3,7 +3,7 @@
     public class Stock
     {
         int id;
-        string name;
+        string nombre;
         string marca;
         string modelo;
         string tipo;
@@ -12,7 +12,7 @@
         string estado;
 
         public int Id { get => id; set => id = value; }
-        public string Name { get => name; set => name = value; }
+        public string Nombre { get => nombre; set => nombre = value; }
         public string Marca { get => marca; set => marca = value; }
         public string Modelo { get => modelo; set => modelo = value; }
         public string Tipo { get => tipo; set => tipo = value; }

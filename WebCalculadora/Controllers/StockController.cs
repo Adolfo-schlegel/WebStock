@@ -5,7 +5,8 @@ namespace WebCalculadora.Controllers
 {
     public class StockController : Controller
     {
-        public IActionResult Index()
+        DataBase.StockBD stockbd = new DataBase.StockBD();
+        public async Task< IActionResult> Index()
         {
             //ejemplos de Envio de Datos
             ViewBag.Nombre = "Este es el ViewBag";
@@ -13,19 +14,23 @@ namespace WebCalculadora.Controllers
             TempData["Usuario"] = "Este es el TempData";
             //ejemplo de como enviar una lista 
 
-            DataBase.StockBD stock = new ();      
-            
-            ViewData["Stock"] = stock.Read();
+            DataBase.StockBD stock = new ();
+
+            //este elemento view data se conecta con el modelo de mi modelo objeto insertado en html, al que le asigno todos mis registros de la bd 
+            ViewData["Stock"] = await stock.Read();
 
             return View();
         }
 
-     
-        public Models.Stock Stock { get => Stock; set => Stock = value; }
-
+        [BindProperty]
+        public Stock Stock { get; set; }
         public ActionResult setStock()
         {
-            return Json(Stock);
+            string url = "http://lanota.3utilities.com/api/values";
+
+            stockbd.Set<Stock>(url, Stock, "POST");
+
+            return RedirectToAction("Index");
         }
         
     }
