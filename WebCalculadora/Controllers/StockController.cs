@@ -8,17 +8,21 @@ namespace WebCalculadora.Controllers
         DataBase.StockBD stockbd = new DataBase.StockBD();
         public async Task< IActionResult> Index()
         {
+            /*
             //ejemplos de Envio de Datos
             ViewBag.Nombre = "Este es el ViewBag";
             ViewData["Apellido"] = "Este es el ViewData";
             TempData["Usuario"] = "Este es el TempData";
             //ejemplo de como enviar una lista 
 
-            DataBase.StockBD stock = new ();
+            System.Diagnostics.Debug.WriteLine(model.Marca);
+            */
+
+            DataBase.StockBD stock = new ();//creo ob de operaciones bd
 
             //este elemento view data se conecta con el modelo de mi modelo objeto insertado en html, al que le asigno todos mis registros de la bd 
             ViewData["Stock"] = await stock.Read();
-
+          
             return View();
         }
 
@@ -33,5 +37,20 @@ namespace WebCalculadora.Controllers
             return RedirectToAction("Index");
         }
         
+        public IActionResult Eliminar(int id)
+        {
+            System.Diagnostics.Debug.WriteLine(id);
+            
+
+            return View();
+        }
+
+        public IActionResult Modificar(int id)
+        {
+            System.Diagnostics.Debug.WriteLine(id);
+            
+
+            return View();
+        }
     }
 }

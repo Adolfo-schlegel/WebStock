@@ -44,6 +44,7 @@
                   <h7>Estado</h7>
                    <input class="form-control" asp-for= "Estado" type="text"/>
 
+
             <div class="Boton">
                 <button type="submit" class="btn btn-primary">Guardar</button>
             </div>
@@ -53,6 +54,7 @@
 
        <div class="col-10">
             <table class="table table-striped table-bordered text-secondary bg-info">
+
                 <header>
                        <tr>
                         <th>id</th>
@@ -65,6 +67,7 @@
                         <th>Estado</th>
                         </tr>
                 </header>
+
                    <tbody>
                        @for(int i = 0; i<= indice -1; i++)
                        {
@@ -77,6 +80,8 @@
                                <td>@stock[i].Area</td>
                                <td>@stock[i].Cantidad</td>
                                <td>@stock[i].Estado</td>
+                               <td><a asp-action="Modificar" asp-controller="Stock" asp-route-id= "@stock[i].Id">Modificar</a></td>
+                               <td><a asp-action="Eliminar" asp-controller="Stock" asp-route-id= "@stock[i].Id">Eliminar</a></td>
                            </tr>
                        }
                    </tbody>
