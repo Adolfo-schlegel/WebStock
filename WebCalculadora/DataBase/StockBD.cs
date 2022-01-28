@@ -13,7 +13,7 @@ namespace WebCalculadora.DataBase
 
         public async Task<List<Models.Stock>> Read()
         {
-            string url = "http://lanota.3utilities.com/api/values";
+            string url = "http://lanota.ddns.net/api/values";
             WebRequest request = WebRequest.Create(url);
             WebResponse response = await request.GetResponseAsync();
             StreamReader reader = new StreamReader(response.GetResponseStream());
@@ -24,8 +24,9 @@ namespace WebCalculadora.DataBase
 
             return ls;
         }
-        public string Set<T>(string url, T objectRequest, string method = "POST")
+        public string Set<T>(T objectRequest, string method = "POST")
         {
+            string url = "http://lanota.ddns.net/api/values";
             string result = "";
 
             try

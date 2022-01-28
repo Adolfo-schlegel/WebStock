@@ -30,9 +30,8 @@ namespace WebCalculadora.Controllers
         public Stock Stock { get; set; }
         public ActionResult setStock()
         {
-            string url = "http://lanota.3utilities.com/api/values";
 
-            stockbd.Set<Stock>(url, Stock, "POST");
+            stockbd.Set<Stock>(Stock, "POST");
 
             return RedirectToAction("Index");
         }

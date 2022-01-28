@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_PublishTargetUrl>C:\inetpub\wwwroot\Web Stock</_PublishTargetUrl>
+    <History>True|2022-01-28T15:23:32.4400872Z;True|2022-01-27T11:34:58.9462849-03:00;True|2022-01-27T11:25:53.2705329-03:00;True|2022-01-27T10:59:55.6877288-03:00;True|2022-01-27T10:59:51.4027715-03:00;True|2022-01-27T10:39:40.7608972-03:00;False|2022-01-27T10:39:31.3376908-03:00;True|2022-01-27T10:37:43.8411397-03:00;True|2022-01-26T16:48:49.0618057-03:00;True|2022-01-26T16:36:59.3588537-03:00;False|2022-01-26T16:35:41.2805072-03:00;False|2022-01-26T16:35:13.8356654-03:00;True|2022-01-26T16:33:34.6558667-03:00;True|2022-01-26T16:09:15.0896188-03:00;</History>
+  </PropertyGroup>
+</Project>
