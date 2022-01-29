@@ -1,7 +1,36 @@
 ﻿
 @{
     ViewData["Title"] = "Modificar";
+    
 }
+@model Stock
 
-<h1>Modificar</h1>
+<div class="row">
 
+   <div class="col-2">
+       <form asp-action = "setStock" asp-controller="Stock" method="post">
+          <div class="contenedor">    
+
+                  <h7>Nombre</h7>
+                  <input class="form-control" asp-for="Nombre" type="text" />
+                  <h7>Marca</h7>
+                  <input class="form-control" asp-for="Marca" type="text"/>
+                  <h7>Modelo</h7>
+                  <input class="form-control" asp-for="Modelo" type="text"/>
+                   <h7>Tipo</h7>
+                  <input class="form-control" asp-for="Tipo" type="text"/>
+                  <h7>Area</h7>
+                  <input class="form-control" asp-for="Area" type="text"/>
+                  <h7>Cantidad</h7>
+                  <input class="form-control" asp-for="Cantidad" type="text"/>
+                  <h7>Estado</h7>
+                   <input class="form-control" asp-for= "Estado" type="text"/>
+
+
+            <div class="Boton">
+                <button type="submit" class="btn btn-primary">Guardar</button>
+            </div>
+         </div>
+       </form>
+   </div>
+</div>

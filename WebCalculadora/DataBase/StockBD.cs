@@ -67,5 +67,89 @@ namespace WebCalculadora.DataBase
 
             return result;
         }
+        public bool Delete(int id, string method = "Delete")
+        {
+            string url = "http://lanota.ddns.net/api/values/" + id;
+            bool result;
+
+            try
+            {
+                WebRequest webRequest = WebRequest.Create(url);
+
+                string json = Newtonsoft.Json.JsonConvert.SerializeObject(id);
+
+                webRequest.Method = method;
+                webRequest.PreAuthenticate = true;
+                webRequest.ContentType = "application/json;charset=utf-8'";
+                webRequest.Timeout = 10000;
+
+                using (var streamWriter = new StreamWriter(webRequest.GetRequestStream()))
+                {
+                    streamWriter.Write(json);
+                    streamWriter.Flush();
+                }
+
+                var httpResponse = (HttpWebResponse)webRequest.GetResponse();
+                using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+                {
+                    result = bool.Parse(streamReader.ReadToEnd());
+                }
+
+                return result;
+            }
+            catch(Exception)
+            {
+                return false;
+            }
+        }
+        public bool Put<T>(T objectRquest, string method = "PUT")
+        {
+            string url = "http://lanota.ddns.net/api/values";
+            bool result;
+
+            try
+            {
+                WebRequest webRequest = WebRequest.Create(url);
+
+                string json = Newtonsoft.Json.JsonConvert.SerializeObject(objectRquest);
+
+                webRequest.Method = method;
+                webRequest.PreAuthenticate = true;
+                webRequest.ContentType = "application/json;charset=utf-8'";
+                webRequest.Timeout = 10000;
+
+                using (var streamWriter = new StreamWriter(webRequest.GetRequestStream()))
+                {
+                    streamWriter.Write(json);
+                    streamWriter.Flush();
+                }
+
+                var httpResponse = (HttpWebResponse)webRequest.GetResponse();
+                using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+                {
+                    result = bool.Parse(streamReader.ReadToEnd());
+                }
+
+                return true;
+            }
+            catch(Exception)
+            {
+                return false;
+            }
+        }
+        public List<Models.Stock> Read_id(int id)
+        {
+            string url = "http://lanota.ddns.net/api/values/" + id;
+            WebRequest request = WebRequest.Create(url);
+            WebResponse response = request.GetResponse();
+            StreamReader reader = new StreamReader(response.GetResponseStream());
+
+            string respuesta = reader.ReadToEnd();
+
+            List<Models.Stock> ls = JsonConvert.DeserializeObject<List<Models.Stock>>(respuesta);       
+
+            return ls;
+
+        }
     }
 }
