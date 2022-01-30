@@ -6,7 +6,7 @@ namespace WebCalculadora.Controllers
     public class StockController : Controller
     {
         [BindProperty]
-        public Stock stock { get; set; }
+        public Stock ModelStock { get; set; }
 
         DataBase.StockBD stockbd = new DataBase.StockBD();
         public async Task< IActionResult> Index()
@@ -28,19 +28,14 @@ namespace WebCalculadora.Controllers
           
             return View();
         }
-
-        
-        public ActionResult setStock()
+        public ActionResult GuardarRegistro()
         {          
-            stockbd.Set<Stock>(stock, "POST");
+            stockbd.Set<Stock>(ModelStock, "POST");
 
             return RedirectToAction("Index");
-        }
-        
-        public IActionResult Eliminar(int id)
+        }    
+        public IActionResult EliminarRegistro(int id)
         {
-            System.Diagnostics.Debug.WriteLine("Seleccionado para eliminar id: ( " + id + " )");
-
             bool result = stockbd.Delete(id, "DELETE");
 
             if(result == true)
@@ -52,12 +47,18 @@ namespace WebCalculadora.Controllers
                 return View();
             }
         }
-
-        public async Task <IActionResult> Modificar(int id)
+        public async Task <IActionResult> ModificarRegistro(int id)
         {
-            Models.Stock stock = stockbd.Read_id(id)[0];
+            Models.Stock stock = stockbd.Read_id(id)[0];//busco el registro con el id 
 
             return View(stock);
         }      
+        public ActionResult SetModificacion()
+        {
+            stockbd.Put(ModelStock, "PUT");
+
+            return RedirectToAction("Index");
+        }
     }
 }
+ 

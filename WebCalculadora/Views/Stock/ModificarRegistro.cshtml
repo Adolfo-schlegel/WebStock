@@ -1,16 +1,30 @@
 ﻿
 @{
-    ViewData["Title"] = "Modificar";
+    ViewData["Title"] = "ModificarRegistro";
     
 }
 @model Stock
 
-<div class="row">
+ <head>
+     <style>
+         .contenedor
+         {
+            margin-bottom: 20px;
+            
+         }
+        .Boton
+        {
+            margin-top: 20px;
+        }
+     </style>
+ </head>
 
-   <div class="col-2">
-       <form asp-action = "setStock" asp-controller="Stock" method="post">
+<div class="row" style="align-items">
+
+   <div class="col-8">
+       <form asp-action = "SetModificacion" asp-controller="Stock" method="post">
           <div class="contenedor">    
-
+                  <input class="form-control" asp-for="Id" type="hidden"/>
                   <h7>Nombre</h7>
                   <input class="form-control" asp-for="Nombre" type="text" />
                   <h7>Marca</h7>
@@ -28,7 +42,7 @@
 
 
             <div class="Boton">
-                <button type="submit" class="btn btn-primary">Guardar</button>
+                <button type="submit" class="btn btn-primary">Modificar Registro</button>
             </div>
          </div>
        </form>
