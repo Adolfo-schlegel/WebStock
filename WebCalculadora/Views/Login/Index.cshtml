@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    List<UserLogin> users = new List<UserLogin>();
+}
+@model UserLogin 
+
+
+    <head>
+        <title>Login</title>
+    </head>
+
+    <body>
+        <div class= "container">
+          <div class="row justify-content-center">
+               <div class="col-4">
+                <form asp-action = "LoginUser" asp-controller="Login" method="post">
+              <div class="mb-2">
+                     <label for="exampleInputEmail1" class="form-label">Email address</label>
+                      <input class="form-control" asp-for="Email1" type="text">
+              </div>
+
+              <div class="mb-2">
+                      <label for="exampleInputPassword1" class="form-label">Password</label>
+                      <input class="form-control" asp-for="Password1" type="text">
+              </div>
+
+              <div class="mb- form-check">
+                      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                      <label class="form-check-label" for="exampleCheck1">Check me out</label>
+              </div>
+
+              <div class="row">
+                  <div class="col-8">
+                     <button type="submit" class="btn btn-primary">Login</button>
+                  </div>
+                     
+                  <div class="col-4" style="margin-top: 10px">
+                      <a style="margin-left: 45px;" asp-action="index" asp-controller="Register" >Registrate</a>
+                  </div>  
+              </div>                     
+            </form>
+           </div>
+          </div>
+        </div>
+    </body>
+
+

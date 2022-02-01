@@ -13,7 +13,7 @@ namespace WebCalculadora.DataBase
 
         public async Task<List<Models.Stock>> Read()
         {
-            string url = "http://lanota.ddns.net/api/values";
+            string url = "http://lanota.ddns.net/api/Stock";
             WebRequest request = WebRequest.Create(url);
             WebResponse response = await request.GetResponseAsync();
             StreamReader reader = new StreamReader(response.GetResponseStream());
@@ -26,7 +26,7 @@ namespace WebCalculadora.DataBase
         }
         public string Set<T>(T objectRequest, string method = "POST")
         {
-            string url = "http://lanota.ddns.net/api/values";
+            string url = "http://lanota.ddns.net/api/Stock";
             string result = "";
 
             try
@@ -69,7 +69,7 @@ namespace WebCalculadora.DataBase
         }
         public bool Delete(int id, string method = "Delete")
         {
-            string url = "http://lanota.ddns.net/api/values/" + id;
+            string url = "http://lanota.ddns.net/api/Stock/" + id;
             bool result;
 
             try
@@ -104,7 +104,7 @@ namespace WebCalculadora.DataBase
         }
         public bool Put<T>(T objectRquest, string method = "PUT")
         {
-            string url = "http://lanota.ddns.net/api/values";
+            string url = "http://lanota.ddns.net/api/Stock";
             bool result;
 
             try
@@ -139,7 +139,7 @@ namespace WebCalculadora.DataBase
         }
         public List<Models.Stock> Read_id(int id)
         {
-            string url = "http://lanota.ddns.net/api/values/" + id;
+            string url = "http://lanota.ddns.net/api/Stock/" + id;
             WebRequest request = WebRequest.Create(url);
             WebResponse response = request.GetResponse();
             StreamReader reader = new StreamReader(response.GetResponseStream());
