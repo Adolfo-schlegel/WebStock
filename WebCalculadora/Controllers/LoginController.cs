@@ -14,12 +14,28 @@ namespace WebCalculadora.Controllers
         
         public ActionResult LoginUser()
         {
+            if(ModelState.IsValid)
+            {
+                DataBase.LoginBD loginBD = new DataBase.LoginBD();
+                bool result = loginBD.ValidateUser(ModelUser);
 
-            Models.UserLogin user = this.ModelUser;
+                if(result == true)
+                {
+                    return RedirectToAction("LoginOK");
+                }
+                else
+                {
+                    return Json("Usuario no registrado");
+                }
+                
+            }
 
-            //validar usuario
+            return Json("error");
+        }
 
-            return Json(user.Email1, user.Password1);
+        public ActionResult LoginOK()
+        {
+            return Json("valido");
         }
 
     }

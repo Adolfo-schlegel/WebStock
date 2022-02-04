@@ -4,6 +4,13 @@
     
 }
 @model UserRegister
+
+
+@section Scripts
+{
+<partial name="_ValidationScriptsPartial" />
+}
+
 <head>
     <title>Registro</title>
 </head>
@@ -16,16 +23,19 @@
               <div class="mb-2">
                      <label for="exampleInputEmail1" class="form-label">Correo</label>
                       <input class="form-control" asp-for="Email1" type="text">
+                      <span asp-validation-for="Email1" class="text-danger"></span>
               </div>
 
               <div class="mb-2">
                       <label for="exampleInputPassword1" class="form-label">Contraseña</label>
                       <input class="form-control" asp-for="Password1" type="text">
+                      <span asp-validation-for="Password1" class="text-danger"></span>
               </div>
 
               <div class="mb-2">
                       <label for="exampleInputPassword1" class="form-label">Confirmar contraseña</label>
                       <input class="form-control" asp-for="Password21" type="text">
+                      <span asp-validation-for="Password21" class="text-danger"></span>                      
               </div>
 
               <div class="mb- form-check">

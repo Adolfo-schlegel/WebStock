@@ -15,8 +15,18 @@ namespace WebCalculadora.Controllers
 
         public ActionResult RegisterUser()
         {       
-            string respuesta = Register.PostUser(UserRegister.Email1, UserRegister.Password1, UserRegister.Password21);
-            return null;
+            if(ModelState.IsValid)
+            {
+                //si es valido, haceme el registro
+                Register.PostUser(UserRegister);
+
+                //y mandame el stock de ese usuario || a iniciar sesion 
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return RedirectToAction("Index");
+            }      
         }
     }
 }
