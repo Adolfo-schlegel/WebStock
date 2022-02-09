@@ -12,15 +12,16 @@ namespace WebCalculadora.Controllers
         }
 
         
-        public ActionResult LoginUser()
+        public async Task<ActionResult> LoginUser()
         {
             if(ModelState.IsValid)
             {
                 DataBase.LoginBD loginBD = new DataBase.LoginBD();
-                bool result = loginBD.ValidateUser(ModelUser);
+                int result = await loginBD.ValidateUserAsync(ModelUser);
 
-                if(result == true)
+                if(result >0)
                 {
+                    //hacer un select al stock del cliente y buscar sus registros por id del usuario 
                     return RedirectToAction("LoginOK");
                 }
                 else

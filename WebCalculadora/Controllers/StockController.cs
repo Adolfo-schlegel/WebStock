@@ -6,56 +6,42 @@ namespace WebCalculadora.Controllers
     public class StockController : Controller
     {
         [BindProperty]
-        public Stock ModelStock { get; set; }
+        public Stock? ModelStock { get; set; }
 
         DataBase.StockBD stockbd = new DataBase.StockBD();
         public async Task< IActionResult> Index()
         {
-            /*
-            //ejemplos de Envio de Datos
-            ViewBag.Nombre = "Este es el ViewBag";
-            ViewData["Apellido"] = "Este es el ViewData";
-            TempData["Usuario"] = "Este es el TempData";
-            //ejemplo de como enviar una lista 
+            ViewData["Stock"] = await stockbd.Read();
 
-            System.Diagnostics.Debug.WriteLine(model.Marca);
-            */
-
-            DataBase.StockBD stock = new ();//creo ob de operaciones bd
-
-            //este elemento view data se conecta con el modelo de mi modelo objeto insertado en html, al que le asigno todos mis registros de la bd 
-            ViewData["Stock"] = await stock.Read();
-          
             return View();
         }
-        public ActionResult GuardarRegistro()
-        {          
-            stockbd.Set<Stock>(ModelStock, "POST");
 
-            return RedirectToAction("Index");
-        }    
-        public IActionResult EliminarRegistro(int id)
+        public async Task<ActionResult> GuardarRegistro()
         {
-            bool result = stockbd.Delete(id, "DELETE");
+             string result = await stockbd.Set(ModelStock);
+          
+             return RedirectToAction("Index");
+        }
+        public async Task<ActionResult> EliminarRegistro(int id)
+        {
+            string result = await stockbd.Delete(id, "DELETE");
 
-            if(result == true)
+            if(result == "true")
             {
                 return RedirectToAction("Index");
             }
-            else
-            {
-                return View();
-            }
+            
+            return View();          
         }
-        public async Task <IActionResult> ModificarRegistro(int id)
+        public ActionResult ModificarRegistro(int id)
         {
-            Models.Stock stock = stockbd.Read_id(id)[0];//busco el registro con el id 
+            Models.Stock stock = stockbd.Read_id(id).Result;//busco el registro con el id 
 
             return View(stock);
         }      
-        public ActionResult SetModificacion()
+        public async Task<ActionResult> SetModificacion()
         {
-            stockbd.Put(ModelStock, "PUT");
+            string result = await stockbd.Put(ModelStock);
 
             return RedirectToAction("Index");
         }

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "eCHY4ffYqonZRfbFgGP/8Ea9Qgcu/UaZh6x8U6EwKWQ=",
+  "Hash": "w2iaHpUXbNGPrAZn4FdBzCusZecidCi+G/dGZyDzj8w=",
   "Source": "WebCalculadora",
   "BasePath": "_content/WebCalculadora",
   "Mode": "Default",
@@ -51,6 +51,57 @@
       "OriginalItemSpec": "C:\\Users\\adolf\\source\\repos\\WebCalculadora\\WebCalculadora\\obj\\Release\\net6.0\\scopedcss\\projectbundle\\WebCalculadora.bundle.scp.css"
     },
     {
+      "Identity": "C:\\Users\\adolf\\source\\repos\\WebCalculadora\\WebCalculadora\\wwwroot\\a61c2a857275a064a9e25d97e33e62a8.gif",
+      "SourceId": "WebCalculadora",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\adolf\\source\\repos\\WebCalculadora\\WebCalculadora\\wwwroot\\",
+      "BasePath": "_content/WebCalculadora",
+      "RelativePath": "a61c2a857275a064a9e25d97e33e62a8.gif",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\a61c2a857275a064a9e25d97e33e62a8.gif"
+    },
+    {
+      "Identity": "C:\\Users\\adolf\\source\\repos\\WebCalculadora\\WebCalculadora\\wwwroot\\agua.gif",
+      "SourceId": "WebCalculadora",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\adolf\\source\\repos\\WebCalculadora\\WebCalculadora\\wwwroot\\",
+      "BasePath": "_content/WebCalculadora",
+      "RelativePath": "agua.gif",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\agua.gif"
+    },
+    {
+      "Identity": "C:\\Users\\adolf\\source\\repos\\WebCalculadora\\WebCalculadora\\wwwroot\\BdRg.gif",
+      "SourceId": "WebCalculadora",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\adolf\\source\\repos\\WebCalculadora\\WebCalculadora\\wwwroot\\",
+      "BasePath": "_content/WebCalculadora",
+      "RelativePath": "BdRg.gif",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\BdRg.gif"
+    },
+    {
       "Identity": "C:\\Users\\adolf\\source\\repos\\WebCalculadora\\WebCalculadora\\wwwroot\\css\\site.css",
       "SourceId": "WebCalculadora",
       "SourceType": "Discovered",
@@ -66,6 +117,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
+    },
+    {
+      "Identity": "C:\\Users\\adolf\\source\\repos\\WebCalculadora\\WebCalculadora\\wwwroot\\e57c9c51191f71be232e3ac45fef62ed.gif",
+      "SourceId": "WebCalculadora",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\adolf\\source\\repos\\WebCalculadora\\WebCalculadora\\wwwroot\\",
+      "BasePath": "_content/WebCalculadora",
+      "RelativePath": "e57c9c51191f71be232e3ac45fef62ed.gif",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\e57c9c51191f71be232e3ac45fef62ed.gif"
     },
     {
       "Identity": "C:\\Users\\adolf\\source\\repos\\WebCalculadora\\WebCalculadora\\wwwroot\\favicon.ico",
@@ -85,6 +153,23 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
+      "Identity": "C:\\Users\\adolf\\source\\repos\\WebCalculadora\\WebCalculadora\\wwwroot\\giphy.gif",
+      "SourceId": "WebCalculadora",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\adolf\\source\\repos\\WebCalculadora\\WebCalculadora\\wwwroot\\",
+      "BasePath": "_content/WebCalculadora",
+      "RelativePath": "giphy.gif",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\giphy.gif"
+    },
+    {
       "Identity": "C:\\Users\\adolf\\source\\repos\\WebCalculadora\\WebCalculadora\\wwwroot\\js\\site.js",
       "SourceId": "WebCalculadora",
       "SourceType": "Discovered",
@@ -100,6 +185,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\site.js"
+    },
+    {
+      "Identity": "C:\\Users\\adolf\\source\\repos\\WebCalculadora\\WebCalculadora\\wwwroot\\lago.gif",
+      "SourceId": "WebCalculadora",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\adolf\\source\\repos\\WebCalculadora\\WebCalculadora\\wwwroot\\",
+      "BasePath": "_content/WebCalculadora",
+      "RelativePath": "lago.gif",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lago.gif"
     },
     {
       "Identity": "C:\\Users\\adolf\\source\\repos\\WebCalculadora\\WebCalculadora\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
@@ -1069,6 +1171,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Identity": "C:\\Users\\adolf\\source\\repos\\WebCalculadora\\WebCalculadora\\wwwroot\\original.gif",
+      "SourceId": "WebCalculadora",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\adolf\\source\\repos\\WebCalculadora\\WebCalculadora\\wwwroot\\",
+      "BasePath": "_content/WebCalculadora",
+      "RelativePath": "original.gif",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\original.gif"
+    },
+    {
+      "Identity": "C:\\Users\\adolf\\source\\repos\\WebCalculadora\\WebCalculadora\\wwwroot\\pc.gif",
+      "SourceId": "WebCalculadora",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\adolf\\source\\repos\\WebCalculadora\\WebCalculadora\\wwwroot\\",
+      "BasePath": "_content/WebCalculadora",
+      "RelativePath": "pc.gif",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\pc.gif"
     }
   ]
 }
