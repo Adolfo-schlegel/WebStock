@@ -2,18 +2,18 @@
 using Nancy.Json;
 using Newtonsoft.Json;
 using System.Text.Json;
-
-namespace WebCalculadora.DataBase
+using WebCalculadora.Models;
+namespace WebCalculadora.Services
 {
-    public class LoginBD
+    public class Auth
     {
         public HttpClient client = new HttpClient();
-
-        public async Task<int> ValidateUserAsync(Models.UserLogin user, string method = "POST")
+        public Reply? reply = new Reply();
+        public async Task<Reply> AuthUser(UserLogin user)
         {
             try
             {
-                string url = "http://lanota.ddns.net/api/login";
+                string url = "http://lanota.ddns.net/api/Login/Auth";
 
                 var response = new { Email = user.Email1, Password = user.Password1 };
 
@@ -21,13 +21,16 @@ namespace WebCalculadora.DataBase
 
                 string resultContent = await request.Content.ReadAsStringAsync();
 
-                request.EnsureSuccessStatusCode();
+                reply = JsonConvert.DeserializeObject<Reply>(resultContent);
 
-                return  int.Parse(resultContent);
+                request.EnsureSuccessStatusCode();                
+
+                return reply;
             }
             catch(Exception ex)
             {
-                return 0;
+                reply.result = 0;
+                return reply;
             }
 
         }

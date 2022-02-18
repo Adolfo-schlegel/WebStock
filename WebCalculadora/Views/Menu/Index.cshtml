@@ -1,0 +1,84 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/WebCalculadora.styles.css" asp-append-version="true" />
+
+    <style>
+        #button_accept a
+        {
+            display: inline-block;
+            background-color: #10263c;
+            padding: 10px;
+            border: 2px solid #b00202;
+            text-decoration: none;
+            font-weight: bold;
+            color: #b00202;
+            transition-duration: 0.4s;
+            cursor: pointer;
+            margin: 2px 2px;
+        }
+        #button_accept a:hover
+        {
+            background-color: #ff9933;
+        }
+       body
+       {
+           background-color: #10263c;
+       }
+       #Titulo
+       {
+           text-align:center;
+           font-family:Lucida Console;
+       }
+        .imagen
+        {
+            height: 500px;
+            background-image: url("https://i.pinimg.com/originals/b2/2a/a2/b22aa22b2f3f55b6468361158d52e2e7.gif");
+            background-repeat:no-repeat;
+            background-position-x:center;
+            background-position-y:center;
+            background-size: 50rem;
+            padding: 200px;
+        } 
+    </style>
+</head>
+
+<body>
+    
+    <div style="padding:20px;margin-top:30px;background-color:#10263c;height:1500px;">
+        <form asp-controller="Menu" asp-action="MenuStock">
+
+            <div style="text-align:center; margin-top:100px;">
+            <h1 style="font-family:Lucida Console; color:White">Gracias por formar parte</h1>
+
+            <h4 style="font-family:Lucida Console; color:White">Este proyecto esta destinado a la creacion y manipulacion de datos</h4>
+
+            <div class="imagen">              
+                   
+            </div>  
+              <p style="color:White;">Dale click a continuar para poder operar con tus stockss</p>
+
+                   <div id = button_accept>
+                      <a asp-action="MenuStock" asp-controller="Menu">ACEPTAR</a>
+                   </div>
+            </div>             
+        </form>        
+    </div>
+
+</body>
+
+<footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2022 - Menu - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+</footer>
+</html>

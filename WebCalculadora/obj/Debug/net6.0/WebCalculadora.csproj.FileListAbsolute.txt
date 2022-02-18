@@ -257,3 +257,8 @@ C:\Users\adolf\source\repos\WebCalculadora\WebCalculadora\bin\Debug\net6.0\Micro
 C:\Users\adolf\source\repos\WebCalculadora\WebCalculadora\bin\Debug\net6.0\Nancy.dll
 C:\Users\adolf\source\repos\WebCalculadora\WebCalculadora\bin\Debug\net6.0\Microsoft.Build.Locator.dll
 C:\Users\adolf\source\repos\WebCalculadora\WebCalculadora\obj\Debug\net6.0\WebCalculadora.csproj.AssemblyReference.cache
+C:\Users\adolf\source\repos\WebCalculadora\WebCalculadora\bin\Debug\net6.0\JWT.dll
+C:\Users\adolf\source\repos\WebCalculadora\WebCalculadora\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\adolf\source\repos\WebCalculadora\WebCalculadora\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\adolf\source\repos\WebCalculadora\WebCalculadora\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\adolf\source\repos\WebCalculadora\WebCalculadora\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll

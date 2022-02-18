@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace WebCalculadora.Models
 {
     public class ErrorViewModel

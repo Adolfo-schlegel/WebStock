@@ -8,6 +8,7 @@ C:\Users\adolf\source\repos\WebCalculadora\WebCalculadora\obj\Release\net6.0\Pub
 C:\Users\adolf\source\repos\WebCalculadora\WebCalculadora\obj\Release\net6.0\PubTmp\Out\BouncyCastle.Crypto.dll
 C:\Users\adolf\source\repos\WebCalculadora\WebCalculadora\obj\Release\net6.0\PubTmp\Out\Google.Protobuf.dll
 C:\Users\adolf\source\repos\WebCalculadora\WebCalculadora\obj\Release\net6.0\PubTmp\Out\Humanizer.dll
+C:\Users\adolf\source\repos\WebCalculadora\WebCalculadora\obj\Release\net6.0\PubTmp\Out\JWT.dll
 C:\Users\adolf\source\repos\WebCalculadora\WebCalculadora\obj\Release\net6.0\PubTmp\Out\K4os.Compression.LZ4.dll
 C:\Users\adolf\source\repos\WebCalculadora\WebCalculadora\obj\Release\net6.0\PubTmp\Out\K4os.Compression.LZ4.Streams.dll
 C:\Users\adolf\source\repos\WebCalculadora\WebCalculadora\obj\Release\net6.0\PubTmp\Out\K4os.Hash.xxHash.dll
@@ -35,6 +36,9 @@ C:\Users\adolf\source\repos\WebCalculadora\WebCalculadora\obj\Release\net6.0\Pub
 C:\Users\adolf\source\repos\WebCalculadora\WebCalculadora\obj\Release\net6.0\PubTmp\Out\Microsoft.DotNet.Scaffolding.Shared.dll
 C:\Users\adolf\source\repos\WebCalculadora\WebCalculadora\obj\Release\net6.0\PubTmp\Out\Microsoft.Extensions.DependencyModel.dll
 C:\Users\adolf\source\repos\WebCalculadora\WebCalculadora\obj\Release\net6.0\PubTmp\Out\Microsoft.Extensions.PlatformAbstractions.dll
+C:\Users\adolf\source\repos\WebCalculadora\WebCalculadora\obj\Release\net6.0\PubTmp\Out\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\adolf\source\repos\WebCalculadora\WebCalculadora\obj\Release\net6.0\PubTmp\Out\Microsoft.IdentityModel.Logging.dll
+C:\Users\adolf\source\repos\WebCalculadora\WebCalculadora\obj\Release\net6.0\PubTmp\Out\Microsoft.IdentityModel.Tokens.dll
 C:\Users\adolf\source\repos\WebCalculadora\WebCalculadora\obj\Release\net6.0\PubTmp\Out\Microsoft.VisualStudio.Debugger.Contracts.dll
 C:\Users\adolf\source\repos\WebCalculadora\WebCalculadora\obj\Release\net6.0\PubTmp\Out\Microsoft.VisualStudio.Web.CodeGeneration.dll
 C:\Users\adolf\source\repos\WebCalculadora\WebCalculadora\obj\Release\net6.0\PubTmp\Out\Microsoft.VisualStudio.Web.CodeGeneration.Core.dll
@@ -66,6 +70,7 @@ C:\Users\adolf\source\repos\WebCalculadora\WebCalculadora\obj\Release\net6.0\Pub
 C:\Users\adolf\source\repos\WebCalculadora\WebCalculadora\obj\Release\net6.0\PubTmp\Out\System.Configuration.ConfigurationManager.dll
 C:\Users\adolf\source\repos\WebCalculadora\WebCalculadora\obj\Release\net6.0\PubTmp\Out\System.Data.SqlClient.dll
 C:\Users\adolf\source\repos\WebCalculadora\WebCalculadora\obj\Release\net6.0\PubTmp\Out\System.Drawing.Common.dll
+C:\Users\adolf\source\repos\WebCalculadora\WebCalculadora\obj\Release\net6.0\PubTmp\Out\System.IdentityModel.Tokens.Jwt.dll
 C:\Users\adolf\source\repos\WebCalculadora\WebCalculadora\obj\Release\net6.0\PubTmp\Out\System.Security.Cryptography.ProtectedData.dll
 C:\Users\adolf\source\repos\WebCalculadora\WebCalculadora\obj\Release\net6.0\PubTmp\Out\System.Security.Permissions.dll
 C:\Users\adolf\source\repos\WebCalculadora\WebCalculadora\obj\Release\net6.0\PubTmp\Out\System.Windows.Extensions.dll

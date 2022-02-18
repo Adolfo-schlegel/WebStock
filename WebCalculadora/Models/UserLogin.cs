@@ -4,9 +4,9 @@ namespace WebCalculadora.Models
 {
     public class UserLogin
     {
-
         string Email;
         string Password;
+        int idEstatus;
 
         [Display(Name = "Correo electrónico")]
         [Required(ErrorMessage = "Este campo es requerido.")]
@@ -22,5 +22,6 @@ namespace WebCalculadora.Models
                      MinimumLength = 6)]
         [DataType(DataType.Password)]
         public string Password1 { get => Password; set => Password = value; }
+
     }
 }

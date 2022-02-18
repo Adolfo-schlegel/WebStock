@@ -257,3 +257,8 @@ C:\Users\adolf\source\repos\WebCalculadora\WebCalculadora\bin\Release\net6.0\Mic
 C:\Users\adolf\source\repos\WebCalculadora\WebCalculadora\bin\Release\net6.0\Microsoft.Extensions.DependencyModel.dll
 C:\Users\adolf\source\repos\WebCalculadora\WebCalculadora\bin\Release\net6.0\Microsoft.Extensions.PlatformAbstractions.dll
 C:\Users\adolf\source\repos\WebCalculadora\WebCalculadora\bin\Release\net6.0\Nancy.dll
+C:\Users\adolf\source\repos\WebCalculadora\WebCalculadora\bin\Release\net6.0\JWT.dll
+C:\Users\adolf\source\repos\WebCalculadora\WebCalculadora\bin\Release\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\adolf\source\repos\WebCalculadora\WebCalculadora\bin\Release\net6.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\adolf\source\repos\WebCalculadora\WebCalculadora\bin\Release\net6.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\adolf\source\repos\WebCalculadora\WebCalculadora\bin\Release\net6.0\System.IdentityModel.Tokens.Jwt.dll

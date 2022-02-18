@@ -1,0 +1,199 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = null;
+    List<UserStock> stock = (List<UserStock>)ViewData["StockUser"];
+    int indice = stock.Count;    
+}
+@model UserStock
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/WebCalculadora.styles.css" asp-append-version="true" />
+
+    <style>
+        
+        body 
+        {
+            margin:0;
+            background-color: #10263c;           
+        }
+        
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+            position: fixed;
+            top: 0;
+            width: 100%;
+        }
+        
+        .navegate_items
+        {
+             float: left;
+        }
+        .navegate_items a
+        {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        
+        .navegate_items:hover:not(.active) 
+        {
+            background-color:#669999;
+            color:black;
+        }
+        #customers 
+        {
+          font-family: Arial, Helvetica, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+          background-color:#2dd2d2;
+        }
+        
+        #customers td, #customers th 
+        {
+          border: 1px solid #ddd;
+          padding: 8px;
+        }               
+        
+        #customers tr:hover {background-color: #ddd; transition-duration: 0.50s;}
+        
+        #customers th 
+        {
+          padding-top: 12px;
+          padding-bottom: 12px;
+          text-align: left;
+          background-color:#609f9f;
+          color: #132020;
+          font-size:smaller;
+        }
+        .Container_text_imput
+        {
+            
+                        
+        }
+        #navegate_salir #salir
+        {
+            display: block;
+            color: white;
+            padding: 14px 16px;
+            text-decoration: none;              
+        }
+        #navegate_salir:hover
+        {            
+             transition-duration: 1.50s;
+             background-color:#be1e1e;
+        }
+        #navegate_salir_item li
+        {
+             float:right;
+             transition-duration: 0.4s;
+             cursor: pointer;
+
+        }
+        #container_stock
+        {
+            margin-left:70px;
+            margin-top:90px;
+        }
+        .Container_text_imput h7
+        {
+            /*background-color:blueviolet;*/
+            color:white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <ul>
+      <li class="navegate_items"><a asp-action = "MenuStock" >Tus Stocks</a></li>
+      <li class="navegate_items"><a asp-action= "CreateStock" >Crear Stocks</a></li>
+
+      <div id="navegate_salir_item">
+          <li id="navegate_salir"><a id="salir" asp-action="Logout">Salir</a></li>
+      </div>      
+    </ul>
+    
+    <div id="container_stock">
+        <div class="col-11">
+         <form asp-action = "GuardarRegistro" asp-controller="Menu" method="POST">
+            <div class="Container_text_imput">        
+                <h7>Nombre</h7>
+                <input class="form-control" asp-for="Nombre" type="text" />
+                <span asp-validation-for="Nombre" class="text-danger"></span>
+                <h7>Marca</h7>
+                <input class="form-control" asp-for="Marca" type="text"/>
+                <span asp-validation-for="Marca" class="text-danger"></span>
+                <h7>Modelo</h7>
+                <input class="form-control" asp-for="Modelo" type="text"/>
+                <span asp-validation-for="Modelo" class="text-danger"></span>
+                 <h7>Tipo</h7>
+                <input class="form-control" asp-for="Tipo" type="text"/>
+                <span asp-validation-for="Tipo" class="text-danger"></span>
+                <h7>Area</h7>
+                <input class="form-control" asp-for="Area" type="text"/>
+                <span asp-validation-for="Area" class="text-danger"></span>
+                <h7>Cantidad</h7>
+                <input class="form-control" asp-for="Cantidad" type="text"/>
+                <span asp-validation-for="Cantidad" class="text-danger"></span>
+                <h7>Estado</h7>
+                 <input class="form-control" asp-for= "Estado" type="text"/>
+                 <span asp-validation-for="Estado" class="text-danger"></span>
+    
+                 <div style="margin-top:20px; margin-left:45%;">
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                </div>
+            </div>
+         </form>
+        </div>
+    </div>    
+
+    <div style="padding:20px;margin-top:50px;height:1500px;">
+        <table id="customers">
+           <tr>
+             <th>id</th>
+             <th>Nombre</th>
+             <th>Marca</th>
+             <th>Modelo</th>
+             <th>Tipo</th>
+             <th>Area</th>
+             <th>Cantidad</th>
+             <th>Estado</th>
+           </tr>
+
+            @for(int i = 0; i<= indice -1; i++)
+            {
+                <tr>
+                    <td>@stock[i].Id</td>
+                    <td>@stock[i].Nombre</td>
+                    <td>@stock[i].Marca</td>
+                    <td>@stock[i].Modelo</td>
+                    <td>@stock[i].Tipo</td>
+                    <td>@stock[i].Area</td>
+                    <td>@stock[i].Cantidad</td>
+                    <td>@stock[i].Estado</td>
+                    <td><a asp-action="ModificarRegistro" asp-controller="Menu" asp-route-id= "@stock[i].Id">Modificar</a></td>
+                    <td><a asp-action="EliminarRegistro" asp-controller="Menu" asp-route-id= "@stock[i].Id">Eliminar</a></td>
+                </tr>
+            }
+        </table>
+    </div>
+</body>
+
+<footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2022 - Menu - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+</footer>
+</html>

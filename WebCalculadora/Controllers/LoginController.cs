@@ -1,43 +1,59 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-
+using WebCalculadora.Models;
+using WebCalculadora.Services;
 namespace WebCalculadora.Controllers
 {
     public class LoginController : Controller
-    {
+    {        
         [BindProperty]
         public Models.UserLogin ModelUser { get; set; }
         public IActionResult Index()
         {
-            return View();
-        }
+            if (Request.Cookies["Token"] != null)
+            {
+                return RedirectToAction("Index", "Menu");
+            }
 
-        
+            return View();
+        }  
         public async Task<ActionResult> LoginUser()
         {
-            if(ModelState.IsValid)
-            {
-                DataBase.LoginBD loginBD = new DataBase.LoginBD();
-                int result = await loginBD.ValidateUserAsync(ModelUser);
+            Reply? oR = new Reply();
 
-                if(result >0)
+            if (ModelState.IsValid)
+            {
+                Auth auth = new Auth(); 
+                oR = await auth.AuthUser(ModelUser); //verify password and generate token 
+
+                if(oR.result > 0)
                 {
-                    //hacer un select al stock del cliente y buscar sus registros por id del usuario 
-                    return RedirectToAction("LoginOK");
+                    SetCookie(oR.data.ToString());                                        
+
+                    return RedirectToAction("Index", "Menu");
                 }
                 else
                 {
-                    return Json("Usuario no registrado");
-                }
-                
+                    ModelState.AddModelError("Email1","El correo o la contraseña son incorrectos");
+
+                    return View("Index");
+                }                
             }
-
-            return Json("error");
+            return Json(oR.message);
         }
 
-        public ActionResult LoginOK()
+        private void SetCookie(string token)
         {
-            return Json("valido");
+            CookieOptions Options = new CookieOptions();
+            Options.Expires = DateTime.Now.AddDays(2);
+            Response.Cookies.Append("Token", token, Options);
         }
+
+        //private string GetCookie()
+        //{
+        //    string? resultCookie = Request.Cookies["Token"];
+
+        //    return resultCookie;
+        //}
 
     }
 }

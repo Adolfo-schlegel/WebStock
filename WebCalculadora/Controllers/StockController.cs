@@ -9,7 +9,7 @@ namespace WebCalculadora.Controllers
         public Stock? ModelStock { get; set; }
 
         DataBase.StockBD stockbd = new DataBase.StockBD();
-        public async Task< IActionResult> Index()
+        public async Task<IActionResult> Index()
         {
             ViewData["Stock"] = await stockbd.Read();
 
@@ -18,27 +18,27 @@ namespace WebCalculadora.Controllers
 
         public async Task<ActionResult> GuardarRegistro()
         {
-             string result = await stockbd.Set(ModelStock);
-          
-             return RedirectToAction("Index");
+            string result = await stockbd.Set(ModelStock);
+
+            return RedirectToAction("Index");
         }
         public async Task<ActionResult> EliminarRegistro(int id)
         {
             string result = await stockbd.Delete(id, "DELETE");
 
-            if(result == "true")
+            if (result == "true")
             {
                 return RedirectToAction("Index");
             }
-            
-            return View();          
+
+            return View();
         }
         public ActionResult ModificarRegistro(int id)
         {
             Models.Stock stock = stockbd.Read_id(id).Result;//busco el registro con el id 
 
             return View(stock);
-        }      
+        }
         public async Task<ActionResult> SetModificacion()
         {
             string result = await stockbd.Put(ModelStock);
@@ -47,4 +47,3 @@ namespace WebCalculadora.Controllers
         }
     }
 }
- 
