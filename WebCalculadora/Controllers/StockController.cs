@@ -35,7 +35,7 @@ namespace WebCalculadora.Controllers
         }
         public ActionResult ModificarRegistro(int id)
         {
-            Models.Stock stock = stockbd.Read_id(id).Result;//busco el registro con el id 
+            Stock stock = stockbd.Read_id(id).Result;
 
             return View(stock);
         }

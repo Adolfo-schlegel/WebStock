@@ -3,10 +3,10 @@ using WebCalculadora.Services;
 using WebCalculadora.Models;
 namespace WebCalculadora.Controllers.User
 {
-
     public class MenuController : Controller
     {
         Models.User user = new Models.User();
+
         UserStockBD UserStockService = new UserStockBD();
 
         [BindProperty]
@@ -27,7 +27,7 @@ namespace WebCalculadora.Controllers.User
 
                 ViewData["StockUser"] = await UserStockService.Get_stock(user);//consulta a servico sobre stock
 
-                return View();
+                return View(UserStock);
             }
 
             return RedirectToAction("Index", "Login");
@@ -50,8 +50,6 @@ namespace WebCalculadora.Controllers.User
             return RedirectToAction("MenuStock");
         }
 
-
-
         public async Task<ActionResult> EliminarRegistro(int id)
         {
             Reply oR = new Reply();
@@ -65,18 +63,19 @@ namespace WebCalculadora.Controllers.User
            
             return View();
         }
-        //public ActionResult ModificarRegistro(int id)
-        //{
-        //    Models.Stock stock = UserStockService.Read_id(id).Result;//busco el registro con el id 
+        public async Task<ActionResult> ModificarStock(int id)
+        {
+            UserStock = await UserStockService.ReadIdAsync(id);
+            return View(UserStock);
+        }
+        public async Task<ActionResult> SetModificacion()
+        {
+            Reply oR = new Reply();
 
-        //    return View(stock);
-        //}
-        //public async Task<ActionResult> SetModificacion()
-        //{
-        //    string result = await UserStockService.ModifyStock(UserStock);
+            oR = await UserStockService.ModifyStock(UserStock);
 
-        //    return RedirectToAction("Index");
-        //}
+            return RedirectToAction("MenuStock");
+        }
 
         public ActionResult Logout()
         {            

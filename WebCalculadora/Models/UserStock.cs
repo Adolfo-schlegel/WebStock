@@ -29,8 +29,10 @@ namespace WebCalculadora.Models
         [Display(Name = "Area")]
         [Required(ErrorMessage = "Este campo es requerido.")]
         public string Area { get => area; set => area = value; }
+        
         [Display(Name = "Cantidad")]
         [Required(ErrorMessage = "Este campo es requerido.")]
+        [Range(0, int.MaxValue, ErrorMessage = "Por favor escriba una cantidad numerica")]
         public int Cantidad { get => cantidad; set => cantidad = value; }
         [Display(Name = "Estado")]
         [Required(ErrorMessage = "Este campo es requerido.")]

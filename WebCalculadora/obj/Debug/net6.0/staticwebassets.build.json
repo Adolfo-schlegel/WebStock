@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "LTrxOsIfP7EmFmOgmnQx3lH0RuRAYwmRBIxaSe+UUWA=",
+  "Hash": "UiricSkKENnvClYl1mJsVvOP0u87YdaJuNtEG+GbKfo=",
   "Source": "WebCalculadora",
   "BasePath": "_content/WebCalculadora",
   "Mode": "Default",
@@ -168,6 +168,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\giphy.gif"
+    },
+    {
+      "Identity": "C:\\Users\\adolf\\source\\repos\\WebCalculadora\\WebCalculadora\\wwwroot\\jinsang-feelings.mp3",
+      "SourceId": "WebCalculadora",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\adolf\\source\\repos\\WebCalculadora\\WebCalculadora\\wwwroot\\",
+      "BasePath": "_content/WebCalculadora",
+      "RelativePath": "jinsang-feelings.mp3",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\jinsang-feelings.mp3"
     },
     {
       "Identity": "C:\\Users\\adolf\\source\\repos\\WebCalculadora\\WebCalculadora\\wwwroot\\js\\site.js",

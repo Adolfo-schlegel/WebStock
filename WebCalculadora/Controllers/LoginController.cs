@@ -33,8 +33,10 @@ namespace WebCalculadora.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("Email1","El correo o la contraseña son incorrectos");
-
+                    if(oR.message == "")
+                         ModelState.AddModelError("Email1","El correo o la contraseña son incorrectos");
+                    else
+                         ModelState.AddModelError("Email1", oR.message);
                     return View("Index");
                 }                
             }

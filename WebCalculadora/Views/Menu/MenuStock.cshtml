@@ -15,12 +15,19 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/WebCalculadora.styles.css" asp-append-version="true" />
 
+    @section Scripts
+     {
+        <partial name="_ValidationScriptsPartial" />
+     }
+
     <style>
         
         body 
         {
             margin:0;
-            background-color: #10263c;           
+            background: #232526;  /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #414345, #232526);  /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */         
         }
         
         ul {
@@ -116,7 +123,7 @@
 
 <body>
 
-    <ul>
+    <ul class="fixed-top">
       <li class="navegate_items"><a asp-action = "MenuStock" >Tus Stocks</a></li>
       <li class="navegate_items"><a asp-action= "CreateStock" >Crear Stocks</a></li>
 
@@ -124,32 +131,39 @@
           <li id="navegate_salir"><a id="salir" asp-action="Logout">Salir</a></li>
       </div>      
     </ul>
+
+    <div style="margin-top:70px; margin-left:70px;">
+        <audio controls autoplay>
+            <source src="/jinsang-feelings.mp3" type="audio/mp3"/>
+        </audio>
+    </div>
     
     <div id="container_stock">
         <div class="col-11">
          <form asp-action = "GuardarRegistro" asp-controller="Menu" method="POST">
             <div class="Container_text_imput">        
                 <h7>Nombre</h7>
-                <input class="form-control" asp-for="Nombre" type="text" />
                 <span asp-validation-for="Nombre" class="text-danger"></span>
+                <input class="form-control" asp-for="Nombre" type="text" />
+                 <span asp-validation-for="Marca" class="text-danger"></span>
                 <h7>Marca</h7>
                 <input class="form-control" asp-for="Marca" type="text"/>
-                <span asp-validation-for="Marca" class="text-danger"></span>
+               <span asp-validation-for="Modelo" class="text-danger"></span>
                 <h7>Modelo</h7>
                 <input class="form-control" asp-for="Modelo" type="text"/>
-                <span asp-validation-for="Modelo" class="text-danger"></span>
+                <span asp-validation-for="Tipo" class="text-danger"></span>
                  <h7>Tipo</h7>
                 <input class="form-control" asp-for="Tipo" type="text"/>
-                <span asp-validation-for="Tipo" class="text-danger"></span>
+                 <span asp-validation-for="Area" class="text-danger"></span>
                 <h7>Area</h7>
                 <input class="form-control" asp-for="Area" type="text"/>
-                <span asp-validation-for="Area" class="text-danger"></span>
+                <span asp-validation-for="Cantidad" class="text-danger"></span>
                 <h7>Cantidad</h7>
                 <input class="form-control" asp-for="Cantidad" type="text"/>
-                <span asp-validation-for="Cantidad" class="text-danger"></span>
+                <span asp-validation-for="Estado" class="text-danger"></span>
                 <h7>Estado</h7>
                  <input class="form-control" asp-for= "Estado" type="text"/>
-                 <span asp-validation-for="Estado" class="text-danger"></span>
+                 
     
                  <div style="margin-top:20px; margin-left:45%;">
                     <button type="submit" class="btn btn-primary">Guardar</button>
@@ -183,12 +197,19 @@
                     <td>@stock[i].Area</td>
                     <td>@stock[i].Cantidad</td>
                     <td>@stock[i].Estado</td>
-                    <td><a asp-action="ModificarRegistro" asp-controller="Menu" asp-route-id= "@stock[i].Id">Modificar</a></td>
+                    <td><a asp-action="ModificarStock" asp-controller="Menu" asp-route-id= "@stock[i].Id">Modificar</a></td>
                     <td><a asp-action="EliminarRegistro" asp-controller="Menu" asp-route-id= "@stock[i].Id">Eliminar</a></td>
                 </tr>
             }
         </table>
     </div>
+
+      <script src="~/lib/jquery/dist/jquery.min.js"></script>
+      <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+      <script src="~/js/site.js" asp-append-version="true"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.12/jquery.validate.unobtrusive.min.js"></script>
 </body>
 
 <footer class="border-top footer text-muted">

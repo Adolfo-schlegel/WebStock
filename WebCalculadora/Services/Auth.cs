@@ -30,6 +30,7 @@ namespace WebCalculadora.Services
             catch(Exception ex)
             {
                 reply.result = 0;
+                reply.message = "Error en el servidor";
                 return reply;
             }
 

@@ -53,12 +53,19 @@ namespace WebCalculadora.Services
             return oR;
         }
 
-        public Reply ModifyStock(UserStock model)
+        public async Task<Reply> ModifyStock(UserStock model)
         {
             Reply oR = new Reply();
 
             try
             {
+                string url = "http://lanota.ddns.net/api/UserStock/ModifyStock";
+
+                HttpResponseMessage response = await client.PutAsJsonAsync(url, model);//debo mandar el token en el handler
+
+                string respuesta = await response.Content.ReadAsStringAsync();
+
+                oR = JsonConvert.DeserializeObject<Reply>(respuesta);
 
             }
             catch (Exception)
@@ -69,20 +76,30 @@ namespace WebCalculadora.Services
             return oR;
         }
 
-        public Reply ReadId(int id)
+        public async Task<UserStock> ReadIdAsync(int id)
         {
             Reply oR = new Reply();
 
             try
             {
+                string url = "http://lanota.ddns.net/api/UserStock/GetStockById/" + id;
 
+                HttpResponseMessage response = await client.GetAsync(url);
+
+                string respuesta = response.Content.ReadAsStringAsync().Result;
+
+                oR = JsonConvert.DeserializeObject<Reply>(respuesta);
+
+                var stock = oR.data;
+
+                List<UserStock>? ls = JsonConvert.DeserializeObject<List<UserStock>>(stock.ToString());
+
+                return ls[0];
             }
             catch (Exception)
             {
-
+                return null;
             }
-
-            return oR;
         }
 
 
@@ -92,7 +109,8 @@ namespace WebCalculadora.Services
 
             try
             {
-                string url = "http://lanota.ddns.net/api/UserStock/DeleteStock" + id;
+                string url = "http://lanota.ddns.net/api/UserStock/DeleteStock/" + id;
+
                 HttpResponseMessage response = await client.DeleteAsync(url);
                 string respuesta = await response.Content.ReadAsStringAsync();
 
