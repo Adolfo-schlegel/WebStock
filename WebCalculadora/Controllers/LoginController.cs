@@ -6,7 +6,7 @@ namespace WebCalculadora.Controllers
     public class LoginController : Controller
     {        
         [BindProperty]
-        public Models.UserLogin ModelUser { get; set; }
+        public UserLogin ModelUser { get; set; }
         public IActionResult Index()
         {
             if (Request.Cookies["Token"] != null)
@@ -49,13 +49,5 @@ namespace WebCalculadora.Controllers
             Options.Expires = DateTime.Now.AddDays(2);
             Response.Cookies.Append("Token", token, Options);
         }
-
-        //private string GetCookie()
-        //{
-        //    string? resultCookie = Request.Cookies["Token"];
-
-        //    return resultCookie;
-        //}
-
     }
 }

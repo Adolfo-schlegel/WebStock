@@ -1,7 +1,4 @@
-﻿using System.Net;
-using Nancy.Json;
-
-namespace WebCalculadora.DataBase
+﻿namespace WebCalculadora.DataBase
 {
     public class RegisterBD
     {

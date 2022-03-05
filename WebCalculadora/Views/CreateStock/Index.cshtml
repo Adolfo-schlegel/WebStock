@@ -1,0 +1,83 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = null;
+   // int cantidad = (int)ViewData["count"];
+}
+@model PlanillaCabecera
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/WebCalculadora.styles.css" asp-append-version="true" />
+        <style>
+            body{
+               background: #4ECDC4;  /* fallback for old browsers */
+               background: -webkit-linear-gradient(to right, #556270, #4ECDC4);  /* Chrome 10-25, Safari 5.1-6 */
+               background: linear-gradient(to right, #556270, #4ECDC4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+            }
+            .center {
+              margin: auto;
+              width: 80%;
+              border: 3px double #403A3E;
+              padding: 10px;
+            }
+            #center {
+              margin: auto;
+              width: 95%;
+              border: 3px double #403A3E;
+              padding: 10px;
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <header>
+            <h3 style="text-align:center; font-style:italic; color: #003d4d">Creacion de tabla</h3>
+        </header>
+
+        <section>
+             <div >                 
+                <form  asp-action ="N_inputs" asp-controller = "CreateStock" method="post">
+                    <div class="center"> 
+                        <label style="font-style:italic;" >Eliga cantidad de columnas que desea</label>
+                        <input class="form-control" asp-for="Count" type="number" value="" style="color:blue"/>                               
+                        <input style="font-size:12px; margin-top:10px;" class="btn btn-info" type="submit"/>                        
+                    </div>                    
+                </form>
+                
+                @if(ViewData["count"] != null)
+                {
+                    <div>
+                        <form id = "center" asp-action= "N_inputsValues" asp-controller="CreateStock">
+                           <div>
+                                <label style="font-style:italic;">Nombre de la tabla</label>
+                                <input class="form-control input-sm" asp-for="Nombre_tabla" />
+                           </div>
+
+                            <div>
+                                @for(int i=0; i<=(int)ViewData["count"] -1; i++)
+                                {         
+                                    
+                                   <div>
+                                      <label>Columna @i.ToString()</label>                            
+                                      <input class="form-control input-sm" asp-for=Campos_Json[i]/>  
+                                   </div>
+                                }
+                            </div>
+                            <input style="margin-top:20px; font-size:12px;" class="btn btn-info" type="submit"/> 
+                        </form>    
+                    </div>
+                }
+ 
+        </div>
+        </section>
+    </body>
+</html>
+
+
+
