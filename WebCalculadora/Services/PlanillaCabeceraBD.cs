@@ -25,5 +25,24 @@ namespace WebCalculadora.Services
                 return 1;                      
             return 0;
         }
+
+        public async Task<List<PlanillaCabecera>> GETAsync(int user_id, string planilla_name)
+        {
+            string url = "https://localhost:7057/api/Planilla_Cabecera/GetCabecera" + user_id;
+            Reply? oR = new Reply();
+            HttpClient client = new HttpClient();
+
+            HttpResponseMessage response = await client.PostAsJsonAsync(url,planilla_name);
+
+            string respuesta = response.Content.ReadAsStringAsync().Result;
+
+            oR = JsonConvert.DeserializeObject<Reply>(respuesta);
+
+            var data =  oR.data;
+
+            List<PlanillaCabecera> ls = JsonConvert.DeserializeObject<List<PlanillaCabecera>>((string)data);
+            
+            return ls;
+        }
     }
 }

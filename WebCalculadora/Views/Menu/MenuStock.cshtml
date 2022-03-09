@@ -25,9 +25,9 @@
         body 
         {
             margin:0;
-            background: #232526;  /* fallback for old browsers */
+            background: #232526;                                                /* fallback for old browsers */
             background: -webkit-linear-gradient(to right, #414345, #232526);  /* Chrome 10-25, Safari 5.1-6 */
-            background: linear-gradient(to right, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */         
+            background: linear-gradient(to right, #414345, #232526);            /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */         
         }
         
         ul {
@@ -118,6 +118,11 @@
             /*background-color:blueviolet;*/
             color:white;
         }
+        #Grid
+        {
+            display: flex;
+            justify-content:center;
+        }
     </style>
 </head>
 
@@ -136,8 +141,8 @@
         <audio controls autoplay>
             <source src="/jinsang-feelings.mp3" type="audio/mp3"/>
         </audio>
-    </div>
-    
+    </div>       
+
     <div id="container_stock">
         <div class="col-11">
          <form asp-action = "GuardarRegistro" asp-controller="Menu" method="POST">
@@ -174,6 +179,19 @@
     </div>    
 
     <div style="padding:20px;margin-top:50px;height:1500px;">
+
+
+        <div id = "Grid">
+            <label for="cars">Choose a car:</label>
+
+            <select name="cars" id="cars">
+              <option value="volvo">Volvo</option>
+              <option value="saab">Saab</option>
+              <option value="mercedes">Mercedes</option>
+              <option value="audi">Audi</option>
+            </select>
+        </div>
+
         <table id="customers">
            <tr>
              <th>id</th>

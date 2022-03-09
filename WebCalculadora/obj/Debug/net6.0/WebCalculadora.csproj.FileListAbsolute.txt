@@ -5,7 +5,6 @@ C:\Users\adolf\source\repos\WebCalculadora\WebCalculadora\bin\Debug\net6.0\WebCa
 C:\Users\adolf\source\repos\WebCalculadora\WebCalculadora\bin\Debug\net6.0\WebCalculadora.deps.json
 C:\Users\adolf\source\repos\WebCalculadora\WebCalculadora\bin\Debug\net6.0\WebCalculadora.runtimeconfig.json
 C:\Users\adolf\source\repos\WebCalculadora\WebCalculadora\bin\Debug\net6.0\WebCalculadora.dll
-C:\Users\adolf\source\repos\WebCalculadora\WebCalculadora\bin\Debug\net6.0\ref\WebCalculadora.dll
 C:\Users\adolf\source\repos\WebCalculadora\WebCalculadora\bin\Debug\net6.0\WebCalculadora.pdb
 C:\Users\adolf\source\repos\WebCalculadora\WebCalculadora\bin\Debug\net6.0\Humanizer.dll
 C:\Users\adolf\source\repos\WebCalculadora\WebCalculadora\bin\Debug\net6.0\MessagePack.dll
@@ -262,3 +261,4 @@ C:\Users\adolf\source\repos\WebCalculadora\WebCalculadora\bin\Debug\net6.0\Micro
 C:\Users\adolf\source\repos\WebCalculadora\WebCalculadora\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
 C:\Users\adolf\source\repos\WebCalculadora\WebCalculadora\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\adolf\source\repos\WebCalculadora\WebCalculadora\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\adolf\source\repos\WebCalculadora\WebCalculadora\obj\Debug\net6.0\refint\WebCalculadora.dll
