@@ -1,0 +1,172 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = null;
+
+    //List<SelectListItem> nombres_tablas = (List<SelectListItem>)ViewBag.Nombres;
+    //List<string>? Columns_Items = (List<string>)ViewBag.TableColumns;
+    
+
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/WebCalculadora.styles.css" asp-append-version="true" /> 
+
+    <title>Tus planillas</title>
+
+    <style>
+        html {
+            font-family: "Lucida Sans", sans-serif;
+        }
+        body
+        {
+            background: #8e9eab;  /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #eef2f3, #8e9eab);  /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #eef2f3, #8e9eab); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        }
+        header {
+            text-align:center;
+            background-color: #0099cc;
+            color: #ffffff;
+            padding: 15px;
+        }
+        .row::after {
+          content: "";
+          clear: both;
+          display: table;
+        }
+        [class*="col-"] {
+          float: left;
+          padding: 15px;
+        }
+        [class*="col-"] {
+          float: left;
+          padding: 15px;
+        }
+        /* For mobile phones: */
+        [class*="col-"] {
+          width: 100%;
+        }
+        .menu ul {
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+        }
+        .menu
+        {
+
+        }
+        .menu li {
+          padding: 8px;
+          margin-bottom: 7px;
+          background-color: #33b5e5;
+          color: #ffffff;
+          box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+        }
+        
+        .menu li:hover {
+          background-color: #0099cc;
+        }
+        .footer {
+          background-color: #0099cc;
+          color: #ffffff;
+          text-align: center;
+          font-size: 12px;
+          padding: 15px;
+        }
+        table {
+          border-collapse: collapse;
+          width: 100%;
+        }
+        
+        th, td {
+          padding: 8px;
+          text-align: left;
+          border-bottom: 1px solid #ddd;
+        }
+
+tr:hover {background-color: coral;}
+    </style>
+</head>
+<body>
+    @model PlanillaCabecera
+    <header>
+        <h1>Tu stock</h1>
+    </header>
+
+    <div class = "row">
+
+         <div class="col-3 col-s-3 menu">
+           <ul>
+             <li>Descargar en formato Excel</li>
+             <li>Agregar contenio de un Excel de tu equipo</li>
+             <li>Compartir archivo</li>
+             <li>Trasladar informacion a otra planilla</li>
+           </ul>
+        </div>
+
+
+          <div class="col-6 col-s-9">
+            <div class="d-grid">
+                <form asp-action ="ChangeTable" asp-controller = "Planillas">
+
+                    @*@Html.DropDownList("Datos", nombres_tablas, "Selecciona una tabla", new {@class = "form-control"})*@
+
+                    <select onchange = "this.form.submit()" asp-items = "Model.LstDeNombres" name="Datos" class = "form-control">
+                        <option>--Seleccione un valor--</option>
+                    </select>
+
+                </form>
+                
+                
+            </div>
+          </div>
+
+        <div class="col-6 col-s-6">
+            <table>
+
+              <tr>
+                  @for(int i=0; i<Model?.Campos_Json?.Count; i++)
+                    {
+                        <th>@Model.Campos_Json[i]</th>
+                    }
+              </tr>
+
+              <tr>
+                <td>Peter</td>
+                <td>Griffin</td>
+                <td>$100</td>
+              </tr>
+              <tr>
+                <td>Lois</td>
+                <td>Griffin</td>
+                <td>$150</td>
+              </tr>
+              <tr>
+                <td>Joe</td>
+                <td>Swanson</td>
+                <td>$300</td>
+              </tr>
+              <tr>
+                <td>Cleveland</td>
+                <td>Brown</td>
+                <td>$250</td>
+              </tr>
+            </table>
+        </div>
+
+
+
+    </div>
+    <div class="footer">
+        <p>Somos conscientes de la confianza que deposita en nosotros y de nuestra responsabilidad a la hora de mantener la privacidad y la seguridad de sus datos. Por eso le facilitamos información acerca de qué datos recogemos cuando utiliza nuestros productos y servicios, por qué lo hacemos y de qué modo los utilizamos para mejorar la experiencia de nuestros usuarios.</p>
+    </div>
+</body>
+</html>
+

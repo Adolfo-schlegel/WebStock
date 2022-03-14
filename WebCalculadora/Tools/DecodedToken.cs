@@ -8,14 +8,22 @@ namespace WebCalculadora.Tools
     {
         public int Decoded(string token)
         {
-            string id;
-            var handler = new JwtSecurityTokenHandler();
-            var decodedValue = handler.ReadJwtToken(token);
+            try
+            {
+                string id;
+                var handler = new JwtSecurityTokenHandler();
+                var decodedValue = handler.ReadJwtToken(token);
 
-            id = decodedValue.Claims.First().Value;
-            //name = decodedValue.Claims.ToList()[1].Value;
+                id = decodedValue.Claims.First().Value;
+                //name = decodedValue.Claims.ToList()[1].Value;
 
-            return int.Parse(id);
+                return int.Parse(id);
+            }
+            catch (Exception ex)
+            {
+                return 0;
+            }
+        
         }        
     }
 }

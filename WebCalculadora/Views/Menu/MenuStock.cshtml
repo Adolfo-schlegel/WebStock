@@ -118,11 +118,6 @@
             /*background-color:blueviolet;*/
             color:white;
         }
-        #Grid
-        {
-            display: flex;
-            justify-content:center;
-        }
     </style>
 </head>
 
@@ -131,6 +126,7 @@
     <ul class="fixed-top">
       <li class="navegate_items"><a asp-action = "MenuStock" >Tus Stocks</a></li>
       <li class="navegate_items"><a asp-controller = "CreateStock" asp-action= "Index" >Crear Stocks</a></li>
+      <li class="navegate_items"><a asp-controller = "Planillas" asp-action= "Index" >Planillas</a></li>
 
       <div id="navegate_salir_item">
           <li id="navegate_salir"><a id="salir" asp-action="Logout">Salir</a></li>
@@ -179,18 +175,6 @@
     </div>    
 
     <div style="padding:20px;margin-top:50px;height:1500px;">
-
-
-        <div id = "Grid">
-            <label for="cars">Choose a car:</label>
-
-            <select name="cars" id="cars">
-              <option value="volvo">Volvo</option>
-              <option value="saab">Saab</option>
-              <option value="mercedes">Mercedes</option>
-              <option value="audi">Audi</option>
-            </select>
-        </div>
 
         <table id="customers">
            <tr>

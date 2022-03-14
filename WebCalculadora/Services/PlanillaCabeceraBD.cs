@@ -26,13 +26,13 @@ namespace WebCalculadora.Services
             return 0;
         }
 
-        public async Task<List<PlanillaCabecera>> GETAsync(int user_id, string planilla_name)
+        public async Task<List<string>> GET_NamesAsync(int user_id)
         {
-            string url = "https://localhost:7057/api/Planilla_Cabecera/GetCabecera" + user_id;
+            string url = "https://localhost:7057/api/Planilla_Cabecera/GetNames/" + user_id;
             Reply? oR = new Reply();
             HttpClient client = new HttpClient();
 
-            HttpResponseMessage response = await client.PostAsJsonAsync(url,planilla_name);
+            HttpResponseMessage response = await client.GetAsync(url);
 
             string respuesta = response.Content.ReadAsStringAsync().Result;
 
@@ -40,8 +40,29 @@ namespace WebCalculadora.Services
 
             var data =  oR.data;
 
-            List<PlanillaCabecera> ls = JsonConvert.DeserializeObject<List<PlanillaCabecera>>((string)data);
-            
+            List<string> ls = JsonConvert.DeserializeObject<List<string>>(data.ToString());
+
+            return ls;
+        }
+
+        public async Task<List<string>> GetColumnsByNameTable(int user_id,string selectedid)
+        {
+            string url = "https://localhost:7057/api/Planilla_Cabecera/GetColumnsByNameTable/" + user_id + "/" + selectedid;
+
+            Reply oR = new Reply();
+
+            HttpClient client = new HttpClient();
+
+            HttpResponseMessage response = await client.GetAsync(url);
+
+            string respuestajson = response.Content.ReadAsStringAsync().Result;
+
+            oR = JsonConvert.DeserializeObject<Reply>(respuestajson);
+
+            var data = oR.data;
+
+            List<string> ls = JsonConvert.DeserializeObject<List<string>>(data.ToString());
+
             return ls;
         }
     }
