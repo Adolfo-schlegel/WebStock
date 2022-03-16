@@ -45,11 +45,11 @@ namespace WebCalculadora.Services
             return ls;
         }
 
-        public async Task<List<string>> GetColumnsByNameTable(int user_id,string selectedid)
+        public async Task<PlanillaCabecera> GetColumnsByNameTable(int user_id,string selectedid)
         {
             string url = "https://localhost:7057/api/Planilla_Cabecera/GetColumnsByNameTable/" + user_id + "/" + selectedid;
 
-            Reply oR = new Reply();
+            Reply? oR = new Reply();
 
             HttpClient client = new HttpClient();
 
@@ -61,9 +61,9 @@ namespace WebCalculadora.Services
 
             var data = oR.data;
 
-            List<string> ls = JsonConvert.DeserializeObject<List<string>>(data.ToString());
+            PlanillaCabecera? cabecera = JsonConvert.DeserializeObject<PlanillaCabecera>(data.ToString());
 
-            return ls;
+            return cabecera;
         }
     }
 }

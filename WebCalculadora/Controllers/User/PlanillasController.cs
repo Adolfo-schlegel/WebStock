@@ -22,17 +22,15 @@ namespace WebCalculadora.Controllers.User
         {            
             PlanillaCabecera.LstDeNombres = await GetNamesColumns();
 
-            // planillaCabecera.LstDeNombres = items;
-
             return View(PlanillaCabecera);
         }
         public async Task<ActionResult> ChangeTable()
         {
             var selectedid = Request.Form["Datos"].ToString();
+            var cabecera = await service.GetColumnsByNameTable(decode.Decoded(Request.Cookies["Token"]), selectedid);
 
-            PlanillaCabecera.Campos_Json = await service.GetColumnsByNameTable(decode.Decoded(Request.Cookies["Token"]), selectedid);
+            PlanillaCabecera.Campos_Json = cabecera.Campos_Json;
             PlanillaCabecera.LstDeNombres = await GetNamesColumns();
-            //ViewBag.TableColumns = await service.GetColumnsByNameTable(decode.Decoded(Request.Cookies["Token"]), selectedid);
 
             return View("Index",PlanillaCabecera);
         }
