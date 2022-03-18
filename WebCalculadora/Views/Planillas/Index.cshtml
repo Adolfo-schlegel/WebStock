@@ -5,6 +5,13 @@
 
     //List<SelectListItem> nombres_tablas = (List<SelectListItem>)ViewBag.Nombres;
     //List<string>? Columns_Items = (List<string>)ViewBag.TableColumns;
+    List<List<string>>? listaRegistros = new List<List<string>>();
+
+    listaRegistros = (List<List<string>>)ViewBag.ListaRegistros;
+    if(listaRegistros is null)
+    {
+        listaRegistros = new List<List<string>>();
+    }
     
 
 }
@@ -144,26 +151,20 @@ tr:hover {background-color: coral;}
                     }
               </tr>
 
-              <tr>
-                <td>Peter</td>
-                <td>Griffin</td>
-                <td>$100</td>
-              </tr>
-              <tr>
-                <td>Lois</td>
-                <td>Griffin</td>
-                <td>$150</td>
-              </tr>
-              <tr>
-                <td>Joe</td>
-                <td>Swanson</td>
-                <td>$300</td>
-              </tr>
-              <tr>
-                <td>Cleveland</td>
-                <td>Brown</td>
-                <td>$250</td>
-              </tr>
+             @* @for(int i=0; i<@listaRegistros?.Count; i++)
+              {*@
+                
+             @foreach(var stock in listaRegistros)
+             {
+                <tr>
+                     @for(int j =0; j<stock.Count; j++)
+                     {
+                         <td>@stock[j].ToString()</td>
+                     }
+                </tr>
+             }                        
+                
+              
             </table>
         </div>
 
