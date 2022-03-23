@@ -14,39 +14,104 @@
         <link rel="stylesheet" href="~/WebCalculadora.styles.css" asp-append-version="true" />
         <style>
             body{
-               background: #4ECDC4;  /* fallback for old browsers */
-               background: -webkit-linear-gradient(to right, #556270, #4ECDC4);  /* Chrome 10-25, Safari 5.1-6 */
-               background: linear-gradient(to right, #556270, #4ECDC4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+              background: #8e9eab;  /* fallback for old browsers */
+              background: -webkit-linear-gradient(to right, #eef2f3, #8e9eab);  /* Chrome 10-25, Safari 5.1-6 */
+              background: linear-gradient(to right, #eef2f3, #8e9eab); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
             }
             .center {
-              margin: auto;
-              width: 80%;
-              border: 3px double #403A3E;
-              padding: 10px;
+                 margin: auto;
+                 width: 80%;
+                 border: 3px double #403A3E;
+                 padding: 10px;
             }
             #center {
-              margin: auto;
-              width: 95%;
-              border: 3px double #403A3E;
-              padding: 10px;
+                 margin: auto;
+                 width: 95%;
+                 border: 3px double #403A3E;
+                 padding: 10px;
             }
+            header
+            {                
+                 text-align:center!important;
+                 color: #ffffff;
+                 padding: 15px;    
+                 display: block;
+                 margin-top: 30px;
+            }
+            #navegate_salir #salir
+            {
+                 display: block;
+                 color: white;
+                 padding: 14px 16px;
+                 text-decoration: none;              
+            }
+            #navegate_salir:hover
+            {            
+                 transition-duration: 1.50s;
+                 background-color:#be1e1e;
+            }
+            #navegate_salir_item li
+            {
+                 float:right;
+                 transition-duration: 0.4s;
+                 cursor: pointer;
 
+            }
+            .fixed-top{
+                 list-style-type: none;
+                 margin: 0;
+                 padding: 0;
+                 overflow: hidden;
+                 background-color: #333;
+                 position: fixed;
+                 top: 0;
+                 width: 100%;
+             }
+             
+             .navegate_items
+             {
+                  float: left;
+             }
+             .navegate_items a
+             {
+                 display: block;
+                 color: white;
+                 text-align: center;
+                 padding: 14px 16px;
+                 text-decoration: none;
+             }
+             
+             .navegate_items:hover:not(.active) 
+             {
+                 background-color:#669999;
+                 color:black;
+             }
         </style>
     </head>
 
     <body>
+
+        <ul class="fixed-top">
+          <li class="navegate_items"><a asp-controller = "CreateStock" asp-action= "Index" >Crear Stocks</a></li>
+          <li class="navegate_items"><a asp-controller = "Planillas" asp-action= "Index" >Planillas</a></li>
+
+          <div id="navegate_salir_item">
+              <li id="navegate_salir"><a id="salir" asp-action="Logout">Salir</a></li>
+          </div>      
+        </ul>
+
+
         <header>
-            <h3 style="text-align:center; font-style:italic; color: #003d4d">Creacion de tabla</h3>
+             <h3 style="text-align:center; margin-top:10px; font-style:italic; color: #003d4d">Creacion de tabla</h3>       
         </header>
 
         <section>
-             <div >                 
+             <div style="margin-top:1%;">                 
                 <form  asp-action ="N_inputs" asp-controller = "CreateStock" method="post">
                     <div class="center"> 
                         <label style="font-style:italic;" >Eliga cantidad de columnas que desea</label>
                         <input class="form-control" asp-for="Count" type="number" value="" style="color:blue"/>                               
-                        <input style="font-size:12px; margin-top:10px;" class="btn btn-info" type="submit"/>                        
+                        <button type="submit" style="margin-top:10px; font-size:12px;" class="btn btn-info" >Aceptar</button>                        
                     </div>                    
                 </form>
                 
@@ -69,7 +134,7 @@
                                    </div>
                                 }
                             </div>
-                            <input style="margin-top:20px; font-size:12px;" class="btn btn-info" type="submit"/> 
+                            <button type="submit" style="margin-top:20px; font-size:12px;" class="btn btn-info" >Crear tabla</button>                            
                         </form>    
                     </div>
                 }

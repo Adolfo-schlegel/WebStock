@@ -1,116 +1,246 @@
 ﻿
 @{
-    ViewData["Title"] = "Index";
     Layout = null;
 
-    //List<SelectListItem> nombres_tablas = (List<SelectListItem>)ViewBag.Nombres;
-    //List<string>? Columns_Items = (List<string>)ViewBag.TableColumns;
     List<List<string>>? listaRegistros = new List<List<string>>();
 
     listaRegistros = (List<List<string>>)ViewBag.ListaRegistros;
+
     if(listaRegistros is null)
     {
         listaRegistros = new List<List<string>>();
     }
-    
-
+    ViewBag.nombreTabla = Model.Nombre_tabla;
 }
+@model PlanillaCabecera
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/WebCalculadora.styles.css" asp-append-version="true" /> 
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/site.webmanifest">
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-<meta name="msapplication-TileColor" content="#00aba9">
-<meta name="theme-color" content="#ffffff">
-    <title>Tus planillas</title>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/WebCalculadora.styles.css" asp-append-version="true" /> 
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+        <meta name="msapplication-TileColor" content="#00aba9">
+        <meta name="theme-color" content="#ffffff">
+        <title>@Model.Nombre_tabla</title>
+    
+        <style>
+            html {
+              font-family: "Lucida Sans", sans-serif;
+            }
+            body
+            {
+              background: #8e9eab;  /* fallback for old browsers */
+              background: -webkit-linear-gradient(to right, #eef2f3, #8e9eab);  /* Chrome 10-25, Safari 5.1-6 */
+              background: linear-gradient(to right, #eef2f3, #8e9eab); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            }
+            header {
+              text-align:center;
+              background-color: #0099cc;
+              padding: 15px;
+              margin-top: 30px;
+            }
+            .row::after {
+              content: "";
+              clear: both;
+              display: table;
+            }
+            [class*="col-"] {
+              float: left;
+              padding: 15px;
+            }
+            [class*="col-"] {
+              float: left;
+              padding: 15px;
+            }
+            /* For mobile phones: */
+            [class*="col-"] {
+              width: 100%;
+            }
+            .menu ul {
+              list-style-type: none;
+              margin: 0;
+              padding: 0;
+            }
+            .menu li {
+              padding: 8px;
+              margin-bottom: 7px;
+              background-color: #33b5e5;
+              color: #ffffff;
+              box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+            }
+            
+            .menu li:hover {
+              background-color: #0099cc;
+            }
+            .footer {
+              background-color: #0099cc;
+              color: #ffffff;
+              text-align: center;
+              font-size: 12px;
+              padding: 15px;
+            }
+            table {
+              border-collapse: collapse;
+              width: 100%;
+            }
+            
+            th, td {
+              padding: 8px;
+              text-align: left;
+              border-bottom: 1px solid #ddd;
+            }
+    
+            tr:hover {background-color: coral;}
 
-    <style>
-        html {
-            font-family: "Lucida Sans", sans-serif;
-        }
-        body
-        {
-            background: #8e9eab;  /* fallback for old browsers */
-            background: -webkit-linear-gradient(to right, #eef2f3, #8e9eab);  /* Chrome 10-25, Safari 5.1-6 */
-            background: linear-gradient(to right, #eef2f3, #8e9eab); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-        }
-        header {
-            text-align:center;
-            background-color: #0099cc;
-            color: #ffffff;
-            padding: 15px;
-        }
-        .row::after {
-          content: "";
-          clear: both;
-          display: table;
-        }
-        [class*="col-"] {
-          float: left;
-          padding: 15px;
-        }
-        [class*="col-"] {
-          float: left;
-          padding: 15px;
-        }
-        /* For mobile phones: */
-        [class*="col-"] {
-          width: 100%;
-        }
-        .menu ul {
-          list-style-type: none;
-          margin: 0;
-          padding: 0;
-        }
-        .menu
-        {
+            .modal {
+              display: none;
+              position: fixed;
+              z-index: 8;
+              left: 0;
+              top: 0;
+              width: 100%;
+              height: 100%;
+              overflow: auto;
+              background-color: rgb(0, 0, 0);
+              background-color: rgba(0, 0, 0, 0.4);
+             }
+             .modal-content {
+              margin: 50px auto;
+              border: 1px solid #999;
+              width: 60%;
+             }
+             h2,
+             p {
+              margin: 0 0 20px;
+              font-weight: 400;
+              color: #999;
+             }
+             span {
+              color: #666;
+              display: block;
+              padding: 0 0 5px;
+             }
+             .Popup {
+              padding: 25px;
+              margin: 25px;
+              box-shadow: 0 2px 5px #f5f5f5;
+              background: #eee;
+             }
+             input,
+             textarea {
+              width: 90%;
+              padding: 10px;
+              margin-bottom: 20px;
+              border: 1px solid #1c87c9;
+              outline: none;
+             }
+             .contact-form button {
+              width: 100%;
+              padding: 10px;
+              border: none;
+              background: #1c87c9;
+              font-size: 16px;
+              font-weight: 400;
+              color: #fff;
+             }
+             button:hover {
+              background: #2371a0;
+             }
+             .close {
+              color: #aaa;
+              float: right;
+              font-size: 28px;
+              font-weight: bold;
+             }
+             .close:hover,
+             .close:focus {
+              color: black;
+              text-decoration: none;
+              cursor: pointer;
+             }
+             button.button {
+              background: none;
+              border-top: none;
+              outline: none;
+              border-right: none;
+              border-left: none;
+              border-bottom: #02274a 1px solid;
+              padding: 0 0 3px 0;
+              font-size: 16px;
+              cursor: pointer;
+             }
+             button.button:hover {
+              border-bottom: #a99567 1px solid;
+              color: #a99567;
+             }
+              #navegate_salir #salir
+             {
+              display: block;
+              color: white;
+              padding: 14px 16px;
+              text-decoration: none;              
+             }
+            #navegate_salir:hover
+             {            
+              transition-duration: 1.50s;
+              background-color:#be1e1e;
+             }
+            #navegate_salir_item li
+             {
+              float:right;
+              transition-duration: 0.4s;
+              cursor: pointer;
+             }
+            .fixed-top
+            {
+             list-style-type: none;
+             margin: 0;
+             padding: 0;
+             overflow: hidden;
+             background-color: #333;
+             position: fixed;
+             top: 0;
+             width: 100%;
+            }             
+            .navegate_items
+            {
+             float: left;
+            }
+            .navegate_items a
+            {
+             display: block;
+             color: white;
+             text-align: center;
+             padding: 14px 16px;
+             text-decoration: none;
+            }            
+            .navegate_items:hover:not(.active) 
+            {
+             background-color:#669999;
+             color:black;
+            }
+        </style>
+    </head>
+<body>    
+    <ul class="fixed-top">
+          <li class="navegate_items"><a asp-controller = "CreateStock" asp-action= "Index" >Crear Stocks</a></li>
+          <li class="navegate_items"><a asp-controller = "Planillas" asp-action= "Index" >Planillas</a></li>
 
-        }
-        .menu li {
-          padding: 8px;
-          margin-bottom: 7px;
-          background-color: #33b5e5;
-          color: #ffffff;
-          box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-        }
-        
-        .menu li:hover {
-          background-color: #0099cc;
-        }
-        .footer {
-          background-color: #0099cc;
-          color: #ffffff;
-          text-align: center;
-          font-size: 12px;
-          padding: 15px;
-        }
-        table {
-          border-collapse: collapse;
-          width: 100%;
-        }
-        
-        th, td {
-          padding: 8px;
-          text-align: left;
-          border-bottom: 1px solid #ddd;
-        }
+          <div id="navegate_salir_item">
+              <li id="navegate_salir"><a id="salir" asp-action="Logout">Salir</a></li>
+          </div>      
+    </ul>
 
-tr:hover {background-color: coral;}
-    </style>
-</head>
-<body>
-    @model PlanillaCabecera
     <header>
-        <h1>Tu stock</h1>
+        <h2 style="text-align:center; margin-top:10px; font-style:italic; color: #ffffff;">Tu stock</h2>
     </header>
 
     <div class = "row">
@@ -124,22 +254,64 @@ tr:hover {background-color: coral;}
            </ul>
         </div>
 
+        <div class="col-6 col-s-9">
+          <div class="d-grid">
+              <form asp-action ="ChangeTable" asp-controller = "Planillas" method="post">
+                  <select onchange = "this.form.submit()" asp-items = "Model.LstDeNombres" name="Datos" class = "form-control">
+                      @if(@Model.Nombre_tabla == "")
+                       {
+                           <option>--Seleccione un valor--</option>
+                       }
+                       <option>@Model.Nombre_tabla</option>                        
+                  </select>
+              </form>                                
+          </div>
+        </div>
 
-          <div class="col-6 col-s-9">
-            <div class="d-grid">
-                <form asp-action ="ChangeTable" asp-controller = "Planillas">
+        <button class ="button" data-modal="modalTwo">[+]</button>
 
-                    @*@Html.DropDownList("Datos", nombres_tablas, "Selecciona una tabla", new {@class = "form-control"})*@
-
-                    <select onchange = "this.form.submit()" asp-items = "Model.LstDeNombres" name="Datos" class = "form-control">
-                        <option>--Seleccione un valor--</option>
-                    </select>
-
-                </form>
-                
-                
+        <div id="modalTwo" class="modal">
+          <div class="modal-content">
+            <div class="contact-form">
+              <span class="close">&times;</span>
+              <form class ="Popup" asp-action="CreateStock" asp-controller="Planillas" asp-route-id="@Model?.cabecera_id">
+                <h2>Insertar en --> @Model.Nombre_tabla</h2>
+                <div>
+                  @if(@Model?.Campos_Json?.Count > 0)
+                   {
+                      @for(int i=0; i<=@Model?.Campos_Json?.Count -1; i++)
+                      {
+                          <input asp-for="Registros_Json"  type="text" placeholder="@Model?.Campos_Json[i]"/>
+                      }
+                   }                  
+                </div>
+                <button type="submit">Insertar</button>
+              </form>
             </div>
           </div>
+        </div>
+
+        <script>
+          let modalBtns = [...document.querySelectorAll(".button")];
+          modalBtns.forEach(function (btn) {
+            btn.onclick = function () {
+              let modal = btn.getAttribute("data-modal");
+              document.getElementById(modal).style.display = "block";
+            };
+          });
+          let closeBtns = [...document.querySelectorAll(".close")];
+          closeBtns.forEach(function (btn) {
+            btn.onclick = function () {
+              let modal = btn.closest(".modal");
+              modal.style.display = "none";
+            };
+          });
+          window.onclick = function (event) {
+            if (event.target.className === "modal") {
+              event.target.style.display = "none";
+            }
+          };
+        </script>
 
         <div class="col-6 col-s-6">
             <table>
@@ -149,27 +321,29 @@ tr:hover {background-color: coral;}
                     {
                         <th>@Model.Campos_Json[i]</th>
                     }
+                    <th>ID</th>
+                    <th>--Opciones--</th>
               </tr>
+                
+              @foreach(var stock in listaRegistros)
+              {
+                 <tr>
+                      @for(int j =0; j<stock.Count; j++)
+                      {
+                            <td>@stock[j].ToString()</td>                            
 
-             @* @for(int i=0; i<@listaRegistros?.Count; i++)
-              {*@
-                
-             @foreach(var stock in listaRegistros)
-             {
-                <tr>
-                     @for(int j =0; j<stock.Count; j++)
-                     {
-                         <td>@stock[j].ToString()</td>
-                     }
-                </tr>
-             }                        
-                
-              
+                            if(j == stock.Count-1)
+                            {
+                               <td>
+                                   <a asp-action="UpdateStock" asp-controller="Planillas" asp-route-id= "@stock[j].ToString()">Modificar</a>
+                                   <a asp-action="DeleteStock" asp-controller="Planillas" asp-route-id= "@stock[j].ToString()">Eliminar</a>
+                               </td>                               
+                            }
+                        }
+                 </tr>
+              }                                                      
             </table>
         </div>
-
-
-
     </div>
     <div class="footer">
         <p>Somos conscientes de la confianza que deposita en nosotros y de nuestra responsabilidad a la hora de mantener la privacidad y la seguridad de sus datos. Por eso le facilitamos información acerca de qué datos recogemos cuando utiliza nuestros productos y servicios, por qué lo hacemos y de qué modo los utilizamos para mejorar la experiencia de nuestros usuarios.</p>

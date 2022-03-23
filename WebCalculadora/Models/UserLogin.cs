@@ -4,9 +4,9 @@ namespace WebCalculadora.Models
 {
     public class UserLogin
     {
-        string Email;
-        string Password;
-        int idEstatus;
+        string? Email;
+        string? Password;
+        int? idEstatus;
 
         [Display(Name = "Correo electrónico")]
         [Required(ErrorMessage = "Este campo es requerido.")]

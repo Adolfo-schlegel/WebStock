@@ -16,7 +16,7 @@ namespace WebCalculadora.Services
         }
         public async Task<List<PlanillaRegistros>> GetStockAsync(int cabecera_id)
         {
-            string url = "https://localhost:7057/api/Planilla_Registros/GetStock/" + cabecera_id;
+            string url = "http://lanota.ddns.net/api/Planilla_Registros/GetStock/" + cabecera_id;
 
             HttpResponseMessage Response = await client.GetAsync(url);
 
@@ -24,9 +24,22 @@ namespace WebCalculadora.Services
 
             oR = JsonConvert.DeserializeObject<Reply>(result);
 
-            registros = JsonConvert.DeserializeObject<List<PlanillaRegistros>>(oR.data.ToString());//si el objeto no tiene nada, va a ser null y dar error
+            registros = JsonConvert.DeserializeObject<List<PlanillaRegistros>>(oR.data.ToString());
                
             return registros;
+        }
+
+        public async Task<int> PostStockAsync(PlanillaRegistros model)
+        {
+            string url = "http://lanota.ddns.net/api/Planilla_Registros/PostStock";
+
+            HttpResponseMessage response = await client.PostAsJsonAsync(url, model);
+
+            string result = await response.Content.ReadAsStringAsync();
+
+            oR = JsonConvert.DeserializeObject<Reply>(result);
+
+            return oR.result;
         }
     }
 }

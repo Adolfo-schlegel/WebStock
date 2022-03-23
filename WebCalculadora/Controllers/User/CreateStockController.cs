@@ -32,7 +32,7 @@ namespace WebCalculadora.Controllers.User
 
             if(result == 1)
             {
-                return RedirectToAction("MenuStock", "Menu");
+                return RedirectToAction("Index", "Planillas");
             }            
             return Json(cabecera.Campos_Json);
         }

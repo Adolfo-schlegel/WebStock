@@ -76,7 +76,6 @@ namespace WebCalculadora.Controllers.User
 
             return RedirectToAction("MenuStock");
         }
-
         public ActionResult Logout()
         {            
             if(Request.Cookies["Token"] != null)
