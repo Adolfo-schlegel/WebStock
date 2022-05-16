@@ -32,7 +32,7 @@ namespace WebCalculadora.Services
             return 0;
         }
 
-        public async Task<List<string>> GET_NamesAsync(int user_id)
+        public async Task<List<string>> GetTableNamesAsync(int user_id)
         {
             string url = "http://lanota.ddns.net/api/Planilla_Cabecera/GetNames/" + user_id;
 

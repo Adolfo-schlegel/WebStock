@@ -39,6 +39,7 @@ C:\Users\adolf\source\repos\WebCalculadora\WebCalculadora\obj\Release\net6.0\Pub
 C:\Users\adolf\source\repos\WebCalculadora\WebCalculadora\obj\Release\net6.0\PubTmp\Out\Microsoft.IdentityModel.JsonWebTokens.dll
 C:\Users\adolf\source\repos\WebCalculadora\WebCalculadora\obj\Release\net6.0\PubTmp\Out\Microsoft.IdentityModel.Logging.dll
 C:\Users\adolf\source\repos\WebCalculadora\WebCalculadora\obj\Release\net6.0\PubTmp\Out\Microsoft.IdentityModel.Tokens.dll
+C:\Users\adolf\source\repos\WebCalculadora\WebCalculadora\obj\Release\net6.0\PubTmp\Out\Microsoft.OpenApi.dll
 C:\Users\adolf\source\repos\WebCalculadora\WebCalculadora\obj\Release\net6.0\PubTmp\Out\Microsoft.VisualStudio.Debugger.Contracts.dll
 C:\Users\adolf\source\repos\WebCalculadora\WebCalculadora\obj\Release\net6.0\PubTmp\Out\Microsoft.VisualStudio.Web.CodeGeneration.dll
 C:\Users\adolf\source\repos\WebCalculadora\WebCalculadora\obj\Release\net6.0\PubTmp\Out\Microsoft.VisualStudio.Web.CodeGeneration.Core.dll
@@ -62,6 +63,9 @@ C:\Users\adolf\source\repos\WebCalculadora\WebCalculadora\obj\Release\net6.0\Pub
 C:\Users\adolf\source\repos\WebCalculadora\WebCalculadora\obj\Release\net6.0\PubTmp\Out\NuGet.ProjectModel.dll
 C:\Users\adolf\source\repos\WebCalculadora\WebCalculadora\obj\Release\net6.0\PubTmp\Out\NuGet.Protocol.dll
 C:\Users\adolf\source\repos\WebCalculadora\WebCalculadora\obj\Release\net6.0\PubTmp\Out\NuGet.Versioning.dll
+C:\Users\adolf\source\repos\WebCalculadora\WebCalculadora\obj\Release\net6.0\PubTmp\Out\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\adolf\source\repos\WebCalculadora\WebCalculadora\obj\Release\net6.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\adolf\source\repos\WebCalculadora\WebCalculadora\obj\Release\net6.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Users\adolf\source\repos\WebCalculadora\WebCalculadora\obj\Release\net6.0\PubTmp\Out\System.Composition.AttributedModel.dll
 C:\Users\adolf\source\repos\WebCalculadora\WebCalculadora\obj\Release\net6.0\PubTmp\Out\System.Composition.Convention.dll
 C:\Users\adolf\source\repos\WebCalculadora\WebCalculadora\obj\Release\net6.0\PubTmp\Out\System.Composition.Hosting.dll

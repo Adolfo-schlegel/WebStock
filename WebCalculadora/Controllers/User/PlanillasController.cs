@@ -17,6 +17,7 @@ namespace WebCalculadora.Controllers.User
         private PlanillaCabeceraBD serviceCabecera = new ();
         private PlanillaRegistroBD serviceRegistro = new ();
         //--inyectar
+
         public PlanillasController()
         {
             PlanillaCabecera = new ();
@@ -31,7 +32,7 @@ namespace WebCalculadora.Controllers.User
         {            
             string selectedCabecera = "";
             string name = TempData["cabecera_id"]?.ToString();
-
+            
             if (name != null && name != "")
             {
                 selectedCabecera = await serviceCabecera.GetNamePlanillaById(int.Parse(TempData["cabecera_id"].ToString()));
@@ -40,20 +41,20 @@ namespace WebCalculadora.Controllers.User
             {
                 selectedCabecera = Request.Form["Datos"].ToString();//me toma el nombre seleccionado 
             }
-            
+
             var cabecera = await serviceCabecera.GetColumnsByNameTable(decode.Decoded(Request.Cookies["Token"]), selectedCabecera);
 
             PlanillaCabecera.Campos_Json = cabecera.Campos_Json;//columnas tabla
             PlanillaCabecera.LstDeNombres = await GetNamesColumns();//combobox nombres
-            ViewBag.ListaRegistros = await GetListStock(cabecera.Id);//registros tabla
+            ViewBag.ListaRegistros = await GetListItems(cabecera.Id);//registros tabla
             PlanillaCabecera.Nombre_tabla = selectedCabecera.ToString();//nombre de la tabla
-            PlanillaCabecera.cabecera_id = cabecera.Id;//id tabla
+            PlanillaCabecera.cabecera_id = cabecera.Id;//id tabla  
               
             return View("Index", PlanillaCabecera);
         }
         private async Task<List<SelectListItem>> GetNamesColumns()
         {
-            List<string> lst = await serviceCabecera.GET_NamesAsync(decode.Decoded(Request.Cookies["Token"]));
+            List<string> lst = await serviceCabecera.GetTableNamesAsync(decode.Decoded(Request.Cookies["Token"]));
 
             List<SelectListItem> items = lst.ConvertAll(d =>
             {
@@ -67,7 +68,7 @@ namespace WebCalculadora.Controllers.User
 
             return items;
         }
-        private async Task<List<List<string>>> GetListStock(int cabecera_id)
+        private async Task<List<List<string>>> GetListItems(int cabecera_id)
         {
             List<PlanillaRegistros>? lstplanillas = await serviceRegistro.GetStockAsync(cabecera_id);
 
@@ -78,31 +79,41 @@ namespace WebCalculadora.Controllers.User
             
             return lstRegistros;
         }
-        public async Task<ActionResult> UpdateStock(int id)
+        private async Task<List<string>> GetListItemById(int id)
         {
-
-
-
-            return RedirectToAction("Index","Planillas");
-        }
-        public async Task<ActionResult> DeleteStock(int id)
-        {
-
-
-
-            return RedirectToAction("Index", "Planillas");
+            return await serviceRegistro.GetStockItemAsync(id);
         }
 
-        public async Task<ActionResult> CreateStock(int id)
+        public async Task<ActionResult> DeleteStock(int id, int header_id)
         {
-            int result = await serviceRegistro.PostStockAsync(new PlanillaRegistros {Registros_Json = Request.Form["Registros_Json"].ToList(), cabecera_id = id});
-            if(result != 0)
+            int result = await serviceRegistro.DeleteStockByIdAsync(id);
+            TempData["cabecera_id"] = header_id;
+            return RedirectToAction("ChangeTable");
+        }
+
+        public async Task<ActionResult> EditItem(int? id)
+        {
+            PlanillaCabecera.Registros_Json =  await serviceRegistro.GetStockItemAsync(id);
+
+            return View(PlanillaCabecera);
+        }
+
+        [HttpPost]
+        private ActionResult EditItem(PlanillaCabecera model)
+        {
+            return RedirectToAction("ChageTable");
+        }
+
+        public async Task<ActionResult> CreateStock(int header_id)
+        {
+            int result = await serviceRegistro.PostStockAsync(new PlanillaRegistros { Registros_Json = Request.Form["Registros_Json"].ToList(), cabecera_id = header_id });
+           
+            if (result != 0)
             {
-                TempData["cabecera_id"] = id;
+                TempData["cabecera_id"] = header_id;
                 return RedirectToAction("ChangeTable", "Planillas");
             }
-                
-            
+                 
             return Json("ERROR 404");
         }
     }

@@ -262,3 +262,8 @@ C:\Users\adolf\source\repos\WebCalculadora\WebCalculadora\bin\Release\net6.0\Mic
 C:\Users\adolf\source\repos\WebCalculadora\WebCalculadora\bin\Release\net6.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\adolf\source\repos\WebCalculadora\WebCalculadora\bin\Release\net6.0\System.IdentityModel.Tokens.Jwt.dll
 C:\Users\adolf\source\repos\WebCalculadora\WebCalculadora\obj\Release\net6.0\refint\WebCalculadora.dll
+C:\Users\adolf\source\repos\WebCalculadora\WebCalculadora\bin\Release\net6.0\Microsoft.OpenApi.dll
+C:\Users\adolf\source\repos\WebCalculadora\WebCalculadora\bin\Release\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\adolf\source\repos\WebCalculadora\WebCalculadora\bin\Release\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\adolf\source\repos\WebCalculadora\WebCalculadora\bin\Release\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\adolf\source\repos\WebCalculadora\WebCalculadora\obj\Release\net6.0\WebCalculadora.MvcApplicationPartsAssemblyInfo.cs
