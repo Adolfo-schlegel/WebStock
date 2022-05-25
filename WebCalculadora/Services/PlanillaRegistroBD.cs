@@ -8,7 +8,7 @@ namespace WebCalculadora.Services
         List<PlanillaRegistros>? registros;
         HttpClient client;
         Reply? oR = new();
-        string url = "http://lanota.ddns.net/api/Planilla_Registros/";
+        
         public PlanillaRegistroBD()
         {
             client = new();
@@ -17,7 +17,7 @@ namespace WebCalculadora.Services
         }
         public async Task<List<PlanillaRegistros>> GetStockAsync(int cabecera_id)
         {
-            url += "GetStock/" + cabecera_id;
+            string url = "http://serverapistock.ddns.net/api/Planilla_Registros/GetStock/" + cabecera_id;
 
             HttpResponseMessage Response = await client.GetAsync(url);
 
@@ -31,7 +31,7 @@ namespace WebCalculadora.Services
         }
         public async Task<List<string>> GetStockItemAsync(int? id)
         {
-            url += "GetStockItem/" + id;
+            string url = "http://serverapistock.ddns.net/api/Planilla_Registros/GetStockItem/" + id;
 
             HttpResponseMessage responseMessage = await client.GetAsync(url);
 
@@ -45,7 +45,7 @@ namespace WebCalculadora.Services
         }
         public async Task<int> PostStockAsync(PlanillaRegistros model)
         {
-            url += "PostStock";
+            string url = "http://serverapistock.ddns.net/api/Planilla_Registros/PostStock";
 
             HttpResponseMessage response = await client.PostAsJsonAsync(url, model);
 
@@ -58,7 +58,7 @@ namespace WebCalculadora.Services
 
         public async Task<int> DeleteStockByIdAsync(int id)
         {
-            url += "DeleteStockById/" + id;
+            string url = "http://serverapistock.ddns.net/api/Planilla_Registros/DeleteStockById/" + id;
 
             HttpResponseMessage response = await client.DeleteAsync(url);
 
@@ -69,9 +69,17 @@ namespace WebCalculadora.Services
             return oR.result;
         }
 
-        public async Task<List<string>> ModifyStockByAsync(PlanillaRegistros model)
+        public async Task<int> ModifyStockAsync(PlanillaCabecera model)
         {
-            return null;
+            string url = "https://localhost:7057/api/Planilla_Registros/UpdateStock";
+
+            HttpResponseMessage response = await client.PutAsJsonAsync(url,model);
+
+            string result = await response.Content.ReadAsStringAsync();
+
+            oR = JsonConvert.DeserializeObject<Reply>(result);
+
+            return oR.result;
         }
     }
 }

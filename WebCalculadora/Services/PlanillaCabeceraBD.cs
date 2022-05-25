@@ -17,7 +17,7 @@ namespace WebCalculadora.Services
         public async Task<int> POSTAsync(PlanillaCabecera model)
         {
             
-            string url = "http://lanota.ddns.net/api/Planilla_Cabecera/CreatePlanilla";
+            string url = "http://serverapistock.ddns.net/api/Planilla_Cabecera/CreatePlanilla";
 
             var request = new { Nombre_tabla = model.Nombre_tabla, Campos_Json = model.Campos_Json, user_id = model.User_id };
 
@@ -34,7 +34,7 @@ namespace WebCalculadora.Services
 
         public async Task<List<string>> GetTableNamesAsync(int user_id)
         {
-            string url = "http://lanota.ddns.net/api/Planilla_Cabecera/GetNames/" + user_id;
+            string url = "http://serverapistock.ddns.net/api/Planilla_Cabecera/GetNames/" + user_id;
 
             HttpResponseMessage response = await client.GetAsync(url);
 
@@ -51,7 +51,7 @@ namespace WebCalculadora.Services
 
         public async Task<string> GetNamePlanillaById(int id)
         {
-            string url = "http://lanota.ddns.net/api/Planilla_Cabecera/GetNamePlanillaByid/" + id;
+            string url = "http://serverapistock.ddns.net/api/Planilla_Cabecera/GetNamePlanillaByid/" + id;
 
             HttpResponseMessage response = await client.GetAsync(url);
 
@@ -66,7 +66,7 @@ namespace WebCalculadora.Services
 
         public async Task<PlanillaCabecera> GetColumnsByNameTable(int user_id,string selectedid)
         {
-            string url = "http://lanota.ddns.net/api/Planilla_Cabecera/GetColumnsByNameTable/" + user_id + "/" + selectedid;
+            string url = "http://serverapistock.ddns.net/api/Planilla_Cabecera/GetColumnsByNameTable/" + user_id + "/" + selectedid;
 
             HttpResponseMessage response = await client.GetAsync(url);
 

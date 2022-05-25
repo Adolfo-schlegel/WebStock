@@ -36,7 +36,7 @@
     @*---Combobox para las opciones de tablas----*@
     <div class="col-6 col-s-9">
       <div class="d-grid">
-        <form asp-action ="ChangeTable" asp-controller = "Planillas" method="post">
+        <form asp-action ="LoadPage" asp-controller = "Planillas" method="post">
           <select onchange = "this.form.submit()" asp-items = "Model.LstDeNombres" name="Datos" class = "form-control">
             @if(@Model.Nombre_tabla == "")
             {
@@ -75,7 +75,7 @@
                 if(j == stock.Count-1)
                 {
                   <td>      
-                     <a onclick="showInPopup('@Url.Action("EditItem","Planillas",new{id = @stock[j]} ,Context.Request.Scheme)','New Transaction')" class="btn btn-success text-white"><i class="fas fa-random"></i> Modificar</a>
+                     <a onclick="showInPopup('@Url.Action("EditItem","Planillas",new{id = @stock[j], header_id = @Model?.cabecera_id} ,Context.Request.Scheme)','New Transaction')" class="btn btn-success text-white"><i class="fas fa-random"></i> Modificar</a>
                     
                      <a asp-action="DeleteStock" asp-controller="Planillas"  asp-route-id= "@stock[j].ToString()" asp-route-header_id="@Model?.cabecera_id" class="btn btn-success text-white"><i class="fas fa-random"></i> Eliminar</a>
                   </td>                               

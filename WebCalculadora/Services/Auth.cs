@@ -13,7 +13,7 @@ namespace WebCalculadora.Services
         {
             try
             {
-                string url = "http://lanota.ddns.net/api/Login/Auth";
+                string url = "http://serverapistock.ddns.net/api/Login/Auth";
 
                 var response = new { Email = user.Email1, Password = user.Password1 };
 

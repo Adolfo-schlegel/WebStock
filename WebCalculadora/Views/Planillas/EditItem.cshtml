@@ -1,24 +1,29 @@
 ﻿@model PlanillaCabecera
-@{
-    Layout = null;
-    //Layout = "_LayoutForUsers";
-}
+@{Layout = null;}
+
 
 <div class="row">
      <div class="col-md-12">
-         <form asp-action="EditItem" onsubmit="return jQueryAjaxPost(this);">               
+         <form asp-action="EditItem" onsubmit="return jQueryAjaxPost(this);" >               
              <div class="modal-body form-horizontal">  
 
                  <div class="form-group row">  
+                      
+                     @*<input type="hidden" asp-for="cabecera_id" value="@Model.cabecera_id"/>*@
 
                      @for(int i=0; i<Model.Registros_Json?.Count; i++)
                      {
-                         <input class="form-control" value="@Model.Registros_Json[i]"/>
+                         <input asp-for="Registros_Json" class="form-control" value="@Model.Registros_Json[i]"/>
                      }
 
                  </div> 
                  
-             </div>
+                 <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      <button type="submit" class="btn btn-primary">Guardar cambios</button>
+                 </div>
+             </div> 
+            
          </form>
     </div>
 </div>

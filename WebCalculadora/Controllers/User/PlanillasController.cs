@@ -28,7 +28,7 @@ namespace WebCalculadora.Controllers.User
             PlanillaCabecera.Nombre_tabla = "";
             return View(PlanillaCabecera);
         }
-        public async Task<ActionResult> ChangeTable()
+        public async Task<ActionResult> LoadPage()
         {            
             string selectedCabecera = "";
             string name = TempData["cabecera_id"]?.ToString();
@@ -39,16 +39,16 @@ namespace WebCalculadora.Controllers.User
             }
             else
             {
-                selectedCabecera = Request.Form["Datos"].ToString();//me toma el nombre seleccionado 
+                selectedCabecera = Request.Form["Datos"].ToString();        //me toma el nombre seleccionado del id del ListOpcion
             }
 
             var cabecera = await serviceCabecera.GetColumnsByNameTable(decode.Decoded(Request.Cookies["Token"]), selectedCabecera);
 
-            PlanillaCabecera.Campos_Json = cabecera.Campos_Json;//columnas tabla
-            PlanillaCabecera.LstDeNombres = await GetNamesColumns();//combobox nombres
-            ViewBag.ListaRegistros = await GetListItems(cabecera.Id);//registros tabla
-            PlanillaCabecera.Nombre_tabla = selectedCabecera.ToString();//nombre de la tabla
-            PlanillaCabecera.cabecera_id = cabecera.Id;//id tabla  
+            PlanillaCabecera.Campos_Json = cabecera.Campos_Json;            //columnas tabla
+            PlanillaCabecera.LstDeNombres = await GetNamesColumns();        //combobox nombres
+            ViewBag.ListaRegistros = await GetListItems(cabecera.Id);       //registros tabla
+            PlanillaCabecera.Nombre_tabla = selectedCabecera.ToString();    //nombre de la tabla
+            PlanillaCabecera.cabecera_id = cabecera.Id;                     //id tabla  
               
             return View("Index", PlanillaCabecera);
         }
@@ -88,20 +88,29 @@ namespace WebCalculadora.Controllers.User
         {
             int result = await serviceRegistro.DeleteStockByIdAsync(id);
             TempData["cabecera_id"] = header_id;
-            return RedirectToAction("ChangeTable");
+            return RedirectToAction("LoadPage", "Planillas");
         }
-
-        public async Task<ActionResult> EditItem(int? id)
+        [HttpGet]
+        public async Task<ActionResult> EditItem(int? id, int header_id)
         {
             PlanillaCabecera.Registros_Json =  await serviceRegistro.GetStockItemAsync(id);
+            TempData["cabecera_id"] = header_id;
+            //PlanillaCabecera.cabecera_id = header_id;
 
             return View(PlanillaCabecera);
         }
 
         [HttpPost]
-        private ActionResult EditItem(PlanillaCabecera model)
+        public async Task<ActionResult> EditItem(PlanillaCabecera model)
         {
-            return RedirectToAction("ChageTable");
+            int result = await serviceRegistro.ModifyStockAsync(model);
+            
+            if(result == 0)
+            {
+                return Json("Error 404");
+            }
+
+            return RedirectToAction("LoadPage", "Planillas");
         }
 
         public async Task<ActionResult> CreateStock(int header_id)
@@ -111,7 +120,7 @@ namespace WebCalculadora.Controllers.User
             if (result != 0)
             {
                 TempData["cabecera_id"] = header_id;
-                return RedirectToAction("ChangeTable", "Planillas");
+                return RedirectToAction("LoadPage", "Planillas");
             }
                  
             return Json("ERROR 404");
